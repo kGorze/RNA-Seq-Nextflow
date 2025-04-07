@@ -1,0 +1,33 @@
+Unable to find image 'quay.io/biocontainers/star:2.7.9a--h9ee0642_0' locally
+2.7.9a--h9ee0642_0: Pulling from biocontainers/star
+c1a16a04cedd: Pulling fs layer
+4ca545ee6d5d: Pulling fs layer
+f3d7726cfdb6: Pulling fs layer
+4ca545ee6d5d: Waiting
+c1a16a04cedd: Waiting
+f3d7726cfdb6: Waiting
+c1a16a04cedd: Download complete
+c1a16a04cedd: Pull complete
+4ca545ee6d5d: Verifying Checksum
+4ca545ee6d5d: Download complete
+4ca545ee6d5d: Pull complete
+f3d7726cfdb6: Download complete
+f3d7726cfdb6: Pull complete
+Digest: sha256:d80ae2e0354e890d55ad0009e9ad9667d1113a679659071e6e02d50e46c8bba1
+Status: Downloaded newer image for quay.io/biocontainers/star:2.7.9a--h9ee0642_0
+	STAR --runMode genomeGenerate --runThreadN 2 --genomeDir star_index --genomeFastaFiles test_genome.fa --sjdbGTFfile test_annotation.gtf --sjdbOverhang 100 --genomeSAindexNbases 11
+	STAR version: 2.7.9a   compiled: 2021-05-04T09:43:56-0400 vega:/home/dobin/data/STAR/STARcode/STAR.master/source
+Apr 07 20:49:30 ..... started STAR run
+Apr 07 20:49:30 ... starting to generate Genome files
+Apr 07 20:49:30 ..... processing annotations GTF
+!!!!! WARNING: --genomeSAindexNbases 11 is too large for the genome size=32, which may cause seg-fault at the mapping step. Re-run genome generation with recommended --genomeSAindexNbases 1
+Apr 07 20:49:30 ... starting to sort Suffix Array. This may take a long time...
+Apr 07 20:49:30 ... sorting Suffix Array chunks and saving them to disk...
+Apr 07 20:49:30 ... loading chunks from disk, packing SA...
+Apr 07 20:49:30 ... finished generating suffix array
+Apr 07 20:49:30 ... generating Suffix Array index
+Apr 07 20:49:30 ... completed Suffix Array index
+Apr 07 20:49:30 ... writing Genome to disk ...
+Apr 07 20:49:30 ... writing Suffix Array to disk ...
+Apr 07 20:49:30 ... writing SAindex to disk
+Apr 07 20:49:30 ..... finished successfully

@@ -5,7 +5,7 @@
  * Includes genome indexing, alignment, and BAM processing
  */
 
-workflow HISAT2_WORKFLOW {
+workflow HISAT2 {
     take:
     reads_ch     // Channel with sample_id and reads
     genome_file  // Reference genome FASTA

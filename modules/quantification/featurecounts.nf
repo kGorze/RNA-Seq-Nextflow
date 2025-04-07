@@ -5,7 +5,7 @@
  * Includes gene-level and transcript-level counting
  */
 
-workflow FEATURECOUNTS_WORKFLOW {
+workflow FEATURECOUNTS {
     take:
     bam_ch      // Channel with sample_id and BAM files
     gtf_file    // Gene annotation GTF

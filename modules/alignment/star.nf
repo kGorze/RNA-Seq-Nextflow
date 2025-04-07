@@ -5,7 +5,7 @@
  * Includes genome indexing, alignment, and BAM processing
  */
 
-workflow STAR_WORKFLOW {
+workflow STAR {
     take:
     reads_ch     // Channel with sample_id and reads
     genome_file  // Reference genome FASTA

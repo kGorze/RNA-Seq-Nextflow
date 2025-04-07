@@ -1,0 +1,100 @@
+Unable to find image 'quay.io/biocontainers/fastqc:0.11.9--0' locally
+0.11.9--0: Pulling from biocontainers/fastqc
+a3ed95caeb02: Pulling fs layer
+77c6c00e8b61: Pulling fs layer
+3aaade50789a: Pulling fs layer
+00cf8b9f3d2a: Pulling fs layer
+7ff999a2256f: Pulling fs layer
+d2ba336f2e44: Pulling fs layer
+dfda3e01f2b6: Pulling fs layer
+10c3bb32200b: Pulling fs layer
+6d92b3a49ebf: Pulling fs layer
+77c6c00e8b61: Waiting
+3aaade50789a: Waiting
+6d92b3a49ebf: Waiting
+10c3bb32200b: Waiting
+00cf8b9f3d2a: Waiting
+dfda3e01f2b6: Waiting
+7ff999a2256f: Waiting
+d2ba336f2e44: Waiting
+a3ed95caeb02: Download complete
+a3ed95caeb02: Pull complete
+3aaade50789a: Verifying Checksum
+3aaade50789a: Download complete
+00cf8b9f3d2a: Verifying Checksum
+00cf8b9f3d2a: Download complete
+77c6c00e8b61: Verifying Checksum
+77c6c00e8b61: Download complete
+77c6c00e8b61: Pull complete
+3aaade50789a: Pull complete
+00cf8b9f3d2a: Pull complete
+7ff999a2256f: Download complete
+7ff999a2256f: Pull complete
+d2ba336f2e44: Download complete
+d2ba336f2e44: Pull complete
+dfda3e01f2b6: Download complete
+dfda3e01f2b6: Pull complete
+10c3bb32200b: Verifying Checksum
+10c3bb32200b: Download complete
+10c3bb32200b: Pull complete
+6d92b3a49ebf: Verifying Checksum
+6d92b3a49ebf: Download complete
+6d92b3a49ebf: Pull complete
+Digest: sha256:70de12400206b9c1784c8dfd019cfe4e42eed9a42eabf6c61eb68342843bdaab
+Status: Downloaded newer image for quay.io/biocontainers/fastqc:0.11.9--0
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Universal_Adapter
+Expected 2 sections for contaminant line but got 1 from AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_1
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_2
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGATGTATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_3
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_4
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACTGACCAATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_5
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACACAGTGATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_6
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACGCCAATATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_7
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_8
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTTGAATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Universal_Adapter
+Expected 2 sections for contaminant line but got 1 from AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_1
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_2
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACCGATGTATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_3
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_4
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACTGACCAATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_5
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACACAGTGATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_6
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACGCCAATATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_7
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTG
+Expected 2 sections for contaminant line but got 1 from >TruSeq_Adapter_Index_8
+Expected 2 sections for contaminant line but got 1 from GATCGGAAGAGCACACGTCTGAACTCCAGTCACACTTGAATCTCGTATGCCGTCTTCTGCTTG
+Failed to process file sample1_R1.fastq.gz
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at uk.ac.babraham.FastQC.Graphs.LineGraph.paint(LineGraph.java:142)
+	at java.desktop/javax.swing.JComponent.print(JComponent.java:1220)
+	at uk.ac.babraham.FastQC.Modules.AbstractQCModule.writeDefaultImage(AbstractQCModule.java:68)
+	at uk.ac.babraham.FastQC.Modules.AdapterContent.makeReport(AdapterContent.java:274)
+	at uk.ac.babraham.FastQC.Report.HTMLReportArchive.<init>(HTMLReportArchive.java:131)
+	at uk.ac.babraham.FastQC.Analysis.OfflineRunner.analysisComplete(OfflineRunner.java:185)
+	at uk.ac.babraham.FastQC.Analysis.AnalysisRunner.run(AnalysisRunner.java:123)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+Failed to process file sample1_R2.fastq.gz
+java.lang.ArrayIndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at uk.ac.babraham.FastQC.Graphs.LineGraph.paint(LineGraph.java:142)
+	at java.desktop/javax.swing.JComponent.print(JComponent.java:1220)
+	at uk.ac.babraham.FastQC.Modules.AbstractQCModule.writeDefaultImage(AbstractQCModule.java:68)
+	at uk.ac.babraham.FastQC.Modules.AdapterContent.makeReport(AdapterContent.java:274)
+	at uk.ac.babraham.FastQC.Report.HTMLReportArchive.<init>(HTMLReportArchive.java:131)
+	at uk.ac.babraham.FastQC.Analysis.OfflineRunner.analysisComplete(OfflineRunner.java:185)
+	at uk.ac.babraham.FastQC.Analysis.AnalysisRunner.run(AnalysisRunner.java:123)
+	at java.base/java.lang.Thread.run(Thread.java:834)

@@ -1,0 +1,16 @@
+Unable to find image 'quay.io/biocontainers/trimmomatic:0.39--hdfd78af_2' locally
+0.39--hdfd78af_2: Pulling from biocontainers/trimmomatic
+cefc4d495539: Pulling fs layer
+4ca545ee6d5d: Pulling fs layer
+d16353093c08: Pulling fs layer
+4ca545ee6d5d: Verifying Checksum
+4ca545ee6d5d: Download complete
+cefc4d495539: Verifying Checksum
+cefc4d495539: Download complete
+cefc4d495539: Pull complete
+4ca545ee6d5d: Pull complete
+d16353093c08: Verifying Checksum
+d16353093c08: Download complete
+d16353093c08: Pull complete
+Digest: sha256:b52e7e3159fda36b7b5c119a9a1e673e6a63e480eff8617b689c031f76998870
+Status: Downloaded newer image for quay.io/biocontainers/trimmomatic:0.39--hdfd78af_2

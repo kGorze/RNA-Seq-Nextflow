@@ -5,7 +5,7 @@
  * Includes custom configuration and comprehensive reporting
  */
 
-workflow MULTIQC_WORKFLOW {
+workflow MULTIQC {
     take:
     multiqc_files  // Channel with all QC files to be aggregated
     
@@ -15,11 +15,11 @@ workflow MULTIQC_WORKFLOW {
     config_file = CREATE_MULTIQC_CONFIG.out.config
     
     // Run MultiQC
-    MULTIQC(multiqc_files, config_file)
+    RUN_MULTIQC(multiqc_files, config_file)
     
     emit:
-    report = MULTIQC.out.report
-    data = MULTIQC.out.data
+    report = RUN_MULTIQC.out.report
+    data = RUN_MULTIQC.out.data
 }
 
 process CREATE_MULTIQC_CONFIG {
@@ -68,7 +68,7 @@ EOL
     """
 }
 
-process MULTIQC {
+process RUN_MULTIQC {
     label 'process_low'
     
     container 'quay.io/biocontainers/multiqc:1.12--pyhdfd78af_0'

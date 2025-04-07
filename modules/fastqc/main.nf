@@ -5,10 +5,7 @@
  * Includes adapter detection and comprehensive QC metrics
  */
 
-// Import adapter file creation process
-include { CREATE_ADAPTER_FILE } from './adapters'
-
-workflow FASTQC_WORKFLOW {
+workflow FASTQC {
     take:
     reads_ch  // Channel with sample_id and reads
 
@@ -18,18 +15,42 @@ workflow FASTQC_WORKFLOW {
     adapter_file = CREATE_ADAPTER_FILE.out.adapter_file
     
     // Run FastQC
-    FASTQC(reads_ch, adapter_file)
+    RUN_FASTQC(reads_ch, adapter_file)
     
     // Output channels
-    fastqc_zip = FASTQC.out.zip
-    fastqc_html = FASTQC.out.html
+    fastqc_zip = RUN_FASTQC.out.zip
+    fastqc_html = RUN_FASTQC.out.html
     
     emit:
     zip = fastqc_zip
     html = fastqc_html
 }
 
-process FASTQC {
+process CREATE_ADAPTER_FILE {
+    label 'process_low'
+    
+    publishDir "${params.outdir}/fastqc", mode: 'copy'
+    
+    output:
+    path "illumina_adapters.txt", emit: adapter_file
+    
+    script:
+    """
+    cat > illumina_adapters.txt << EOL
+TruSeq_Universal_Adapter\tAATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+TruSeq_Adapter_Index_1\tGATCGGAAGAGCACACGTCTGAACTCCAGTCACATCACGATCTCGTATGCCGTCTTCTGCTTG
+TruSeq_Adapter_Index_2\tGATCGGAAGAGCACACGTCTGAACTCCAGTCACCGATGTATCTCGTATGCCGTCTTCTGCTTG
+TruSeq_Adapter_Index_3\tGATCGGAAGAGCACACGTCTGAACTCCAGTCACTTAGGCATCTCGTATGCCGTCTTCTGCTTG
+TruSeq_Adapter_Index_4\tGATCGGAAGAGCACACGTCTGAACTCCAGTCACTGACCAATCTCGTATGCCGTCTTCTGCTTG
+TruSeq_Adapter_Index_5\tGATCGGAAGAGCACACGTCTGAACTCCAGTCACACTGAATCTCGTATGCCGTCTTCTGCTTG
+TruSeq_Adapter_Index_6\tGATCGGAAGAGCACACGTCTGAACTCCAGTCACGCCAATATCTCGTATGCCGTCTTCTGCTTG
+TruSeq_Adapter_Index_7\tGATCGGAAGAGCACACGTCTGAACTCCAGTCACCAGATCATCTCGTATGCCGTCTTCTGCTTG
+TruSeq_Adapter_Index_8\tGATCGGAAGAGCACACGTCTGAACTCCAGTCACACTTGAATCTCGTATGCCGTCTTCTGCTTG
+EOL
+    """
+}
+
+process RUN_FASTQC {
     tag "$sample_id"
     label 'process_low'
     
@@ -49,11 +70,11 @@ process FASTQC {
     """
     # Create directory for adapter file
     mkdir -p \$HOME/.fastqc/
-    cp ${adapter_file} \$HOME/.fastqc/adapters.fa
+    cp ${adapter_file} \$HOME/.fastqc/adapters.txt
     
     # Run FastQC with adapter detection
     fastqc -q -t ${task.cpus} \\
-        --adapters \$HOME/.fastqc/adapters.fa \\
+        --adapters \$HOME/.fastqc/adapters.txt \\
         --extract \\
         --nogroup \\
         ${reads}

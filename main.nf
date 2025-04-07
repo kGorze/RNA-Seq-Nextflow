@@ -77,11 +77,11 @@ workflow {
     if (params.aligner == 'star') {
         STAR(trimmed_reads_ch, genome_file, gtf_file)
         FEATURECOUNTS(STAR.out.bam, gtf_file)
-        counts_ch = FEATURECOUNTS.out.counts
+        counts_ch = FEATURECOUNTS.out.merged_gene_counts
     } else if (params.aligner == 'hisat2') {
         HISAT2(trimmed_reads_ch, genome_file, gtf_file)
         FEATURECOUNTS(HISAT2.out.bam, gtf_file)
-        counts_ch = FEATURECOUNTS.out.counts
+        counts_ch = FEATURECOUNTS.out.merged_gene_counts
     } else if (params.aligner == 'salmon') {
         SALMON(trimmed_reads_ch, genome_file, gtf_file)
         counts_ch = SALMON.out.counts
@@ -94,27 +94,16 @@ workflow {
         DESEQ2(counts_ch, design_file, contrasts_file)
     }
     
-    // MultiQC report
+    // Quality control and MultiQC report
     if (!params.skip_qc) {
-        multiqc_files = Channel.empty()
-        
-        // Add FastQC results
-        multiqc_files = multiqc_files.mix(FASTQC.out.zip.collect())
-        
-        // Add alignment logs
-        if (params.aligner == 'star') {
-            multiqc_files = multiqc_files.mix(STAR.out.log.collect())
-        } else if (params.aligner == 'hisat2') {
-            multiqc_files = multiqc_files.mix(HISAT2.out.log.collect())
-        }
-        
-        // Add featureCounts logs
-        if (params.aligner != 'salmon') {
-            multiqc_files = multiqc_files.mix(FEATURECOUNTS.out.log.collect())
-        }
+        // Collect all QC files using Channel.fromPath after processes have run
+        Channel
+            .fromPath("${params.outdir}/**{_fastqc.zip,_fastqc.html,Log.*,*_stats.txt,*.summary}", hidden: true)
+            .collect()
+            .set { multiqc_files }
         
         // Generate MultiQC report
-        MULTIQC(multiqc_files.collect())
+        MULTIQC(multiqc_files)
     }
 }
 

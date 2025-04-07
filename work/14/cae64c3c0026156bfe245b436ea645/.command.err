@@ -1,0 +1,18 @@
+Unable to find image 'quay.io/biocontainers/star:2.7.9a--h9ee0642_0' locally
+2.7.9a--h9ee0642_0: Pulling from biocontainers/star
+c1a16a04cedd: Pulling fs layer
+4ca545ee6d5d: Pulling fs layer
+f3d7726cfdb6: Pulling fs layer
+4ca545ee6d5d: Waiting
+c1a16a04cedd: Waiting
+f3d7726cfdb6: Waiting
+c1a16a04cedd: Download complete
+c1a16a04cedd: Pull complete
+4ca545ee6d5d: Verifying Checksum
+4ca545ee6d5d: Download complete
+4ca545ee6d5d: Pull complete
+f3d7726cfdb6: Download complete
+f3d7726cfdb6: Pull complete
+Digest: sha256:d80ae2e0354e890d55ad0009e9ad9667d1113a679659071e6e02d50e46c8bba1
+Status: Downloaded newer image for quay.io/biocontainers/star:2.7.9a--h9ee0642_0
+!!!!! WARNING: --genomeSAindexNbases 11 is too large for the genome size=32, which may cause seg-fault at the mapping step. Re-run genome generation with recommended --genomeSAindexNbases 1

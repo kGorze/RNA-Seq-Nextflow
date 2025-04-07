@@ -1,1 +1,23 @@
 2025-04-07 17:36:32	-	naughty_keller	-	98b2676b1c35fd43f00cf3e153fbd55f	d529b9c1-6dc2-4a00-8820-c4c4863a77bf	nextflow run main.nf --input samples.csv --genome fasta.fa --gtf genes.gtf
+2025-04-07 22:32:46	-	goofy_monod	-	98b2676b1c35fd43f00cf3e153fbd55f	52bf96f1-146e-43fe-9afb-3e5d8ea2a978	nextflow run main.nf -profile docker --reads '/path/to/reads/*_R{1,2}.fastq.gz' --genome /path/to/genome.fa --gtf /path/to/annotation.gtf --outdir ./results
+2025-04-07 22:33:04	-	scruffy_wright	-	98b2676b1c35fd43f00cf3e153fbd55f	44228c0c-30e2-43d1-b6db-213cd6292565	nextflow run main.nf -profile test,docker
+2025-04-07 22:33:53	-	modest_curran	-	98b2676b1c35fd43f00cf3e153fbd55f	9223f6f4-bfe4-4dc6-9e6f-675e4a7472e2	nextflow run main.nf -profile docker --reads '/path/to/reads/*_R{1,2}.fastq.gz' --genome /path/to/genome.fa --gtf /path/to/annotation.gtf --outdir ./results
+2025-04-07 22:34:05	-	small_goldberg	-	98b2676b1c35fd43f00cf3e153fbd55f	4b20a07c-c044-475c-a74c-8a9d2a34132a	nextflow run main.nf -profile test,docker
+2025-04-07 22:34:33	-	small_nobel	-	98b2676b1c35fd43f00cf3e153fbd55f	01a8f855-8dce-40e0-bcff-216265f82a6c	nextflow run main.nf -profile test,docker
+2025-04-07 22:36:12	-	confident_booth	-	98b2676b1c35fd43f00cf3e153fbd55f	4770d9f8-e78f-45b2-9814-b9392ed976d2	nextflow run main.nf -profile test,docker
+2025-04-07 22:36:47	-	elegant_celsius	-	98b2676b1c35fd43f00cf3e153fbd55f	c08de680-3d33-4c40-9615-f67aafcff2f7	nextflow run main.nf -profile test,docker
+2025-04-07 22:37:10	-	nasty_linnaeus	-	98b2676b1c35fd43f00cf3e153fbd55f	c1d21aaa-c77d-4f3d-b6b0-a9198f26a8b3	nextflow run main.nf -profile test,docker
+2025-04-07 22:37:46	-	happy_booth	-	90423e030263f947c0f39929a6286bf7	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker
+2025-04-07 22:38:42	-	admiring_bhaskara	-	f6b321eeb768ed7189bbfb6150f7985d	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:39:06	-	zen_mahavira	-	f90c2ce2fe96a049df2a5106ccb4fdc5	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:40:23	-	special_neumann	-	ec8483ca0e99c09ee77f35cf98198a5c	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:40:49	2.7s	fervent_volhard	ERR	1be24ba03fb511ba5e9a9a6224e2ad93	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:41:09	4s	gloomy_spence	ERR	1be24ba03fb511ba5e9a9a6224e2ad93	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:41:42	-	boring_moriondo	-	437c2a403157835940a999e843d68070	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:42:05	-	cheeky_hopper	-	45e24b29599e1acb15cdb29326427f58	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:42:27	-	scruffy_picasso	-	7cbefd16262cac551d1ea494e1b2b920	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:42:49	-	admiring_golick	-	910184fc583c779c8befc59525845a2d	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:43:32	-	hopeful_descartes	-	910184fc583c779c8befc59525845a2d	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:44:08	3.9s	wise_roentgen	ERR	dbb16b8de9d641552ddefde135da1daa	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:48:25	3.8s	intergalactic_murdock	ERR	dbb16b8de9d641552ddefde135da1daa	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
+2025-04-07 22:49:20	47.7s	extravagant_babbage	ERR	dbb16b8de9d641552ddefde135da1daa	7b83b844-6370-4296-97c5-f823068bc63a	nextflow run main.nf -profile test,docker -resume
