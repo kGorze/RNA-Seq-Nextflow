@@ -1,0 +1,59 @@
+FROM continuumio/miniconda3:4.10.3
+
+LABEL maintainer="RNA-Seq Pipeline Team" \
+      description="Base Docker image for RNA-Seq Nextflow pipeline"
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    wget \
+    unzip \
+    bzip2 \
+    git \
+    curl \
+    procps \
+    libncurses5-dev \
+    libncursesw5-dev \
+    libbz2-dev \
+    liblzma-dev \
+    libcurl4-openssl-dev \
+    zlib1g-dev \
+    libssl-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set up conda channels
+RUN conda config --add channels defaults \
+    && conda config --add channels bioconda \
+    && conda config --add channels conda-forge
+
+# Install core bioinformatics tools
+RUN conda install -y \
+    fastqc=0.11.9 \
+    multiqc=1.12 \
+    trimmomatic=0.39 \
+    star=2.7.9a \
+    hisat2=2.2.1 \
+    salmon=1.5.2 \
+    subread=2.0.1 \
+    samtools=1.13 \
+    bedtools=2.30.0 \
+    gffread=0.12.7 \
+    && conda clean -afy
+
+# Install R and Bioconductor packages
+RUN conda install -y r-base=4.1.0 r-essentials r-devtools r-tidyverse r-rmarkdown r-dt r-pheatmap r-ggplot2 r-plotly \
+    && conda clean -afy
+
+# Install Bioconductor packages
+RUN R -e "if (!requireNamespace('BiocManager', quietly = TRUE)) install.packages('BiocManager'); \
+    BiocManager::install(c('DESeq2', 'edgeR', 'tximport', 'GenomicFeatures', 'rtracklayer', 'EnhancedVolcano'), ask = FALSE)"
+
+# Create working directory
+WORKDIR /data
+
+# Add container's bin directory to PATH
+ENV PATH="/opt/conda/bin:${PATH}"
+
+# Default command
+CMD ["/bin/bash"]

@@ -1,0 +1,16 @@
+FROM nfcore/base:1.14
+
+LABEL maintainer="RNA-Seq Pipeline Team" \
+      description="MultiQC container for RNA-Seq Nextflow pipeline"
+
+# Install MultiQC
+RUN apt-get update && apt-get install -y \
+    python3-pip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip3 install multiqc==1.12 \
+    && pip3 cache purge
+
+# Default command
+CMD ["multiqc", "--help"]

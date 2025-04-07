@@ -1,0 +1,1 @@
+2025-04-07 17:36:32	-	naughty_keller	-	98b2676b1c35fd43f00cf3e153fbd55f	d529b9c1-6dc2-4a00-8820-c4c4863a77bf	nextflow run main.nf --input samples.csv --genome fasta.fa --gtf genes.gtf

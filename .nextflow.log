@@ -1,0 +1,148 @@
+Apr-07 17:36:30.785 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf --input samples.csv --genome fasta.fa --gtf genes.gtf
+Apr-07 17:36:30.874 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.5
+Apr-07 17:36:30.905 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/konrad_guest/.nextflow/plugins; core-plugins: nf-amazon@2.9.2,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.4
+Apr-07 17:36:30.933 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Apr-07 17:36:30.935 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Apr-07 17:36:30.938 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Apr-07 17:36:30.953 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Apr-07 17:36:30.984 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/konrad_guest/ExternalDisk/nfproject/nextflow.config
+Apr-07 17:36:30.989 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/konrad_guest/ExternalDisk/nfproject/nextflow.config
+Apr-07 17:36:31.025 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/konrad_guest/.nextflow/secrets/store.json
+Apr-07 17:36:31.030 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@bf71cec] - activable => nextflow.secret.LocalSecretsProvider@bf71cec
+Apr-07 17:36:31.059 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Apr-07 17:36:31.833 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Apr-07 17:36:31.851 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [naughty_keller] DSL2 - revision: 98b2676b1c
+Apr-07 17:36:31.853 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Apr-07 17:36:31.854 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Apr-07 17:36:31.945 [main] DEBUG nextflow.Session - Session UUID: d529b9c1-6dc2-4a00-8820-c4c4863a77bf
+Apr-07 17:36:31.950 [main] DEBUG nextflow.Session - Run name: naughty_keller
+Apr-07 17:36:31.951 [main] DEBUG nextflow.Session - Executor pool size: 6
+Apr-07 17:36:31.973 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Apr-07 17:36:31.982 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=18; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-07 17:36:32.015 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.10.5 build 5935
+  Created: 04-03-2025 17:55 UTC (18:55 CEST)
+  System: Linux 6.8.0-57-generic
+  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 17.0.14+7-Ubuntu-122.04.1
+  Encoding: UTF-8 (UTF-8)
+  Process: 47586@konrad-hp [127.0.1.1]
+  CPUs: 6 - Mem: 15 GB (1.4 GB) - Swap: 2 GB (897 MB)
+Apr-07 17:36:32.052 [main] DEBUG nextflow.Session - Work-dir: /home/konrad_guest/ExternalDisk/nfproject/work [ext2/ext3]
+Apr-07 17:36:32.089 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Apr-07 17:36:32.102 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Apr-07 17:36:32.139 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Apr-07 17:36:32.152 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 7; maxThreads: 1000
+Apr-07 17:36:32.243 [main] DEBUG nextflow.Session - Session start
+Apr-07 17:36:32.677 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Apr-07 17:36:33.363 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_ea586113c55314d2: /home/konrad_guest/ExternalDisk/nfproject/./modules/alignment/star.nf
+  Script_3dd2b36b2fa53d43: /home/konrad_guest/ExternalDisk/nfproject/./modules/multiqc/main.nf
+  Script_b90572ff59f59193: /home/konrad_guest/ExternalDisk/nfproject/./modules/fastqc/main.nf
+  Script_2eea71f911806c1f: /home/konrad_guest/ExternalDisk/nfproject/main.nf
+  Script_693a961d39fc47c6: /home/konrad_guest/ExternalDisk/nfproject/./modules/fastqc/./adapters.nf
+  Script_a7bf90f35de3fbd3: /home/konrad_guest/ExternalDisk/nfproject/./modules/trimming/main.nf
+Apr-07 17:36:33.363 [main] DEBUG nextflow.Session - Session aborted -- Cause: Cannot find a component with name 'STAR' in module: /home/konrad_guest/ExternalDisk/nfproject/./modules/alignment/star.nf
+Apr-07 17:36:33.370 [main] DEBUG nextflow.Session - 
+Thread[process reaper,10,system]
+  java.base@17.0.14/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@17.0.14/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+  java.base@17.0.14/java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:401)
+  java.base@17.0.14/java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:903)
+  java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1061)
+  java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+  java.base@17.0.14/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+  java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+
+Thread[Notification Thread,9,system]
+
+Thread[Common-Cleaner,8,InnocuousThreadGroup]
+  java.base@17.0.14/java.lang.Object.wait(Native Method)
+  java.base@17.0.14/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+  java.base@17.0.14/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+  java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+  java.base@17.0.14/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:162)
+
+Thread[Thread-1,5,main]
+  java.base@17.0.14/jdk.internal.misc.Unsafe.park(Native Method)
+  java.base@17.0.14/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+  java.base@17.0.14/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1679)
+  java.base@17.0.14/java.util.concurrent.LinkedBlockingDeque.pollFirst(LinkedBlockingDeque.java:515)
+  java.base@17.0.14/java.util.concurrent.LinkedBlockingDeque.poll(LinkedBlockingDeque.java:677)
+  app//nextflow.util.SimpleAgent.run(SimpleAgent.groovy:89)
+  java.base@17.0.14/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  java.base@17.0.14/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+  java.base@17.0.14/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.base@17.0.14/java.lang.reflect.Method.invoke(Method.java:569)
+  app//org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+  app//groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1017)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1207)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+  app//groovy.lang.Closure.call(Closure.java:433)
+  app//groovy.lang.Closure.call(Closure.java:412)
+  app//groovy.lang.Closure.run(Closure.java:505)
+  java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+
+Thread[AnsiLogObserver,5,main]
+  java.base@17.0.14/java.lang.Object.wait(Native Method)
+  app//nextflow.trace.AnsiLogObserver.render0(AnsiLogObserver.groovy:185)
+  java.base@17.0.14/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  java.base@17.0.14/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+  java.base@17.0.14/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  java.base@17.0.14/java.lang.reflect.Method.invoke(Method.java:569)
+  app//org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+  app//groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethodClosure(MetaClassImpl.java:1017)
+  app//groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1207)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+  app//groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+  app//groovy.lang.Closure.call(Closure.java:433)
+  app//groovy.lang.Closure.call(Closure.java:412)
+  app//groovy.lang.Closure.run(Closure.java:505)
+  java.base@17.0.14/java.lang.Thread.run(Thread.java:840)
+
+Thread[Finalizer,8,system]
+  java.base@17.0.14/java.lang.Object.wait(Native Method)
+  java.base@17.0.14/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+  java.base@17.0.14/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+  java.base@17.0.14/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:172)
+
+Thread[Signal Dispatcher,9,system]
+
+Thread[Reference Handler,10,system]
+  java.base@17.0.14/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+  java.base@17.0.14/java.lang.ref.Reference.processPendingReferences(Reference.java:253)
+  java.base@17.0.14/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)
+
+Thread[main,5,main]
+  java.base@17.0.14/java.lang.Thread.dumpThreads(Native Method)
+  java.base@17.0.14/java.lang.Thread.getAllStackTraces(Thread.java:1671)
+  app//nextflow.util.SysHelper.dumpThreads(SysHelper.groovy:188)
+  app//nextflow.Session.abort(Session.groovy:800)
+  app//nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:149)
+  app//nextflow.cli.CmdRun.run(CmdRun.groovy:376)
+  app//nextflow.cli.Launcher.run(Launcher.groovy:503)
+  app//nextflow.cli.Launcher.main(Launcher.groovy:658)
+
+Apr-07 17:36:33.378 [main] ERROR nextflow.cli.Launcher - @unknown
+nextflow.exception.MissingModuleComponentException: Cannot find a component with name 'STAR' in module: /home/konrad_guest/ExternalDisk/nfproject/./modules/alignment/star.nf
+	at nextflow.script.ScriptMeta.addModule(ScriptMeta.groovy:302)
+	at nextflow.script.ScriptMeta.addModule(ScriptMeta.groovy:293)
+	at nextflow.script.IncludeDef.load0(IncludeDef.groovy:117)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at Script_2eea71f911806c1f.runScript(Script_2eea71f911806c1f:15)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run0(BaseScript.groovy:159)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at nextflow.script.BaseScript.run(BaseScript.groovy:209)
+	at nextflow.script.ScriptParser.runScript(ScriptParser.groovy:236)
+	at nextflow.script.ScriptRunner.run(ScriptRunner.groovy:243)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:138)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:376)
+	at nextflow.cli.Launcher.run(Launcher.groovy:503)
+	at nextflow.cli.Launcher.main(Launcher.groovy:658)

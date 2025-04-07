@@ -1,0 +1,18 @@
+FROM nfcore/base:1.14
+
+LABEL maintainer="RNA-Seq Pipeline Team" \
+      description="featureCounts quantification container for RNA-Seq Nextflow pipeline"
+
+# Install featureCounts (part of the Subread package)
+RUN apt-get update && apt-get install -y \
+    g++ \
+    make \
+    zlib1g-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN conda install -y subread=2.0.1 \
+    && conda clean -afy
+
+# Default command
+CMD ["featureCounts", "-v"]
