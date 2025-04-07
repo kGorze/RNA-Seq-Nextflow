@@ -1,0 +1,16 @@
+FROM bioconductor/bioconductor_docker:RELEASE_3_14
+
+LABEL maintainer="RNA-Seq Pipeline Team" \
+      description="DESeq2 differential expression analysis container for RNA-Seq Nextflow pipeline"
+
+# Install additional R packages
+RUN R -e "install.packages(c('ggplot2', 'pheatmap', 'RColorBrewer', 'EnhancedVolcano', 'DT', 'plotly', 'rmarkdown', 'knitr'), repos='https://cloud.r-project.org/')"
+
+# Install additional Bioconductor packages
+RUN R -e "BiocManager::install(c('tximport', 'GenomicFeatures', 'rtracklayer'))"
+
+# Create working directory
+WORKDIR /data
+
+# Default command
+CMD ["R", "--version"]

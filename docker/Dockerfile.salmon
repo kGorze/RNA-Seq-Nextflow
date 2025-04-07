@@ -1,0 +1,20 @@
+FROM nfcore/base:1.14
+
+LABEL maintainer="RNA-Seq Pipeline Team" \
+      description="Salmon quantification container for RNA-Seq Nextflow pipeline"
+
+# Install Salmon
+RUN apt-get update && apt-get install -y \
+    g++ \
+    make \
+    cmake \
+    libboost-all-dev \
+    libtbb-dev \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN conda install -y salmon=1.5.2 \
+    && conda clean -afy
+
+# Default command
+CMD ["salmon", "--version"]

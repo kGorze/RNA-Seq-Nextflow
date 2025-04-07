@@ -1,0 +1,21 @@
+FROM nfcore/base:1.14
+
+LABEL maintainer="RNA-Seq Pipeline Team" \
+      description="Trimmomatic container for RNA-Seq Nextflow pipeline"
+
+# Install Trimmomatic
+RUN apt-get update && apt-get install -y \
+    openjdk-11-jre \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN conda install -y trimmomatic=0.39 \
+    && conda clean -afy
+
+# Add adapter files
+RUN mkdir -p /usr/local/share/trimmomatic/adapters
+COPY TruSeq3-PE.fa /usr/local/share/trimmomatic/adapters/
+COPY TruSeq3-SE.fa /usr/local/share/trimmomatic/adapters/
+
+# Default command
+CMD ["trimmomatic", "-version"]
