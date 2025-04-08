@@ -125,6 +125,147 @@ Profiles can be combined using comma-separated values:
 nextflow run main.nf -profile test,docker
 ```
 
+### Commands guide-book
+
+1. First we've got the pipeline execution commands:
+```
+# Run the pipeline with default parameters
+nextflow run main.nf
+
+# Run with test profile and Docker
+nextflow run main.nf -profile test,docker
+
+# Resume a previous run (recommended)
+nextflow run main.nf -profile test,docker -resume
+
+# Run with custom configuration
+nextflow run main.nf -c custom.config
+
+# Run with specific work directory
+nextflow run main.nf -w /path/to/work/dir
+
+# Run pipeline with debug log level
+nextflow run main.nf -profile test,docker -log debug
+
+# View pipeline help
+nextflow run main.nf --help
+
+# View pipeline version and parameters
+nextflow run main.nf --version
+```
+
+
+2. Then, when we want to change the default configuration we can use those commands:
+```
+# Run with different profiles
+nextflow run main.nf -profile docker
+nextflow run main.nf -profile singularity
+nextflow run main.nf -profile conda
+
+# Specify custom resources
+nextflow run main.nf --max_memory '64.GB' --max_cpus 16
+
+# Override parameters
+nextflow run main.nf --reads '/path/to/reads/*_{1,2}.fastq.gz'
+nextflow run main.nf --genome '/path/to/genome.fa'
+nextflow run main.nf --annotation '/path/to/annotation.gtf'
+```
+
+3. If you don't have the specified data from your experiment you can use for learning purposes the synthetic one which we provide with those commands:
+
+```
+# Generate test data
+cd test_data
+python test_data_generator.py
+
+# Clean test data
+rm test_data/*.fastq.gz test_data/*.fa test_data/*.gtf
+
+# Regenerate specific test files
+python test_data_generator.py --only-fastq  # (#TODO)
+python test_data_generator.py --only-genome  # (#TODO)
+python test_data_generator.py --only-annotation  # (#TODO)
+```
+
+4. After those initial settings we can continue with the managements commands:
+
+```
+# Clean work directory
+rm -rf work/
+
+# Clean results directory
+rm -rf results/
+
+# View pipeline execution report(here you can use the browser of your choice, all of those html are based on the dependencies which are not made by me)
+firefox results/multiqc/multiqc_report.html
+
+# List all processes in the work directory
+ls -l work/*/
+
+# View Nextflow logs
+cat .nextflow.log
+
+# View specific process logs
+cat work/XX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/.command.log
+```
+
+5. Docker/Container management commands:
+```
+# Pull required Docker images
+docker pull rocker/r-base:4.1.0
+docker pull biocontainers/star:2.7.10a--h9ee0642_0
+docker pull biocontainers/fastqc:0.11.9--0
+docker pull biocontainers/trimmomatic:0.39--hdfd78af_2
+docker pull biocontainers/subread:2.0.1--hed695b0_0
+
+# List downloaded images
+docker images
+
+# Remove unused images
+docker system prune
+```
+
+6. We also have some debug commands, if anything would brake:
+```
+# Run pipeline with debug log level
+nextflow run main.nf -profile test,docker -log debug
+
+# Inspect a specific process
+cd work/XX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/
+bash .command.run
+
+# View process environment
+cat .command.env
+
+# View process script
+cat .command.sh
+```
+7. Maintain all the information about the performance:
+```
+# Monitor resource usage
+top -u $USER
+
+# Monitor disk usage
+du -sh work/ results/
+
+# View Nextflow runtime statistics
+nextflow log
+```
+8. Eventually we can watch the results with our file viewer:
+```
+# View merged gene counts
+cat results/featurecounts/merged/merged_gene_counts.csv
+
+# View merged transcript counts
+cat results/featurecounts/merged/merged_transcript_counts.csv
+
+# View alignment statistics
+cat results/star/*/Log.final.out
+
+# View FastQC reports
+firefox results/fastqc/*.html
+```
+
 ## Input Files
 
 ### Read Files
