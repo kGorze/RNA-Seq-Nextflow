@@ -69,6 +69,7 @@ workflow {
     if (!params.skip_trimming) {
         TRIMMOMATIC(read_pairs_ch)
         trimmed_reads_ch = TRIMMOMATIC.out.trimmed_reads
+        trimming_logs = TRIMMOMATIC.out.log
     } else {
         trimmed_reads_ch = read_pairs_ch
     }

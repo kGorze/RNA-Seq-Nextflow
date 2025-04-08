@@ -1,0 +1,40 @@
+Unable to find image 'quay.io/biocontainers/multiqc:1.12--pyhdfd78af_0' locally
+1.12--pyhdfd78af_0: Pulling from biocontainers/multiqc
+aa44502a478a: Pulling fs layer
+bef3901422b5: Pulling fs layer
+b6572cc046f2: Pulling fs layer
+6dbbfe98ccd4: Pulling fs layer
+4ca545ee6d5d: Pulling fs layer
+8b69234bd411: Pulling fs layer
+8b69234bd411: Waiting
+6dbbfe98ccd4: Waiting
+4ca545ee6d5d: Waiting
+b6572cc046f2: Verifying Checksum
+b6572cc046f2: Download complete
+bef3901422b5: Verifying Checksum
+bef3901422b5: Download complete
+4ca545ee6d5d: Verifying Checksum
+4ca545ee6d5d: Download complete
+6dbbfe98ccd4: Verifying Checksum
+6dbbfe98ccd4: Download complete
+aa44502a478a: Verifying Checksum
+aa44502a478a: Download complete
+aa44502a478a: Pull complete
+bef3901422b5: Pull complete
+b6572cc046f2: Pull complete
+6dbbfe98ccd4: Pull complete
+4ca545ee6d5d: Pull complete
+8b69234bd411: Verifying Checksum
+8b69234bd411: Download complete
+8b69234bd411: Pull complete
+Digest: sha256:82dae6463e1b19fafb6022401186300b66decf5ce319a725271700fe4e32e12a
+Status: Downloaded newer image for quay.io/biocontainers/multiqc:1.12--pyhdfd78af_0
+
+  /// MultiQC 🔍 | v1.12
+
+|           multiqc | MultiQC Version v1.28 now available!
+|           multiqc | Report title: RNA-Seq Analysis Report
+|           multiqc | Search path : /home/konrad_guest/ExternalDisk/nfproject/work/4a/b4f610c50df607abd4a3a0bfaa13db
+|         searching | ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 100% 8/8  
+|           multiqc | No analysis results found. Cleaning up..
+|           multiqc | MultiQC complete
