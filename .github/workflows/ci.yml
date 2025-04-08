@@ -19,10 +19,19 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: '3.8'
           cache: 'pip'
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install numpy biopython pandas matplotlib seaborn scikit-learn
+          fi
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1

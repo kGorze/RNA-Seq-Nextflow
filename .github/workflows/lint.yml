@@ -32,15 +32,19 @@ jobs:
           find . -name "*.nf" -type f -exec nextflow -check {} \;
 
       - name: Set up Python
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v4
         with:
           python-version: '3.8'
           cache: 'pip'
 
-      - name: Install Python linting tools
+      - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install flake8 black
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          else
+            pip install flake8 black yamllint
+          fi
 
       - name: Lint Python code
         run: |
