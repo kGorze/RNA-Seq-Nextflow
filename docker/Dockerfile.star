@@ -1,4 +1,4 @@
-FROM nfcore/base:1.14
+FROM nfcore/base:2.1
 
 LABEL maintainer="RNA-Seq Pipeline Team" \
       description="STAR alignment container for RNA-Seq Nextflow pipeline"
