@@ -1,6 +1,7 @@
 *.log
 work/
 .nextflow/
+results/
 results/star/index
 results/fastqc/
 results/featurecounts/

@@ -8,6 +8,46 @@
 // Enable DSL2
 nextflow.enable.dsl = 2
 
+// Help function
+def helpMessage() {
+    log.info """
+    =======================================================
+    RNA-Seq Nextflow Pipeline v${workflow.manifest.version}
+    =======================================================
+
+    Usage:
+        nextflow run main.nf [options]
+
+    Required Parameters:
+        --reads         Path to input FASTQ files (must be quoted and include the {1,2} pattern for paired-end data)
+        --genome        Path to reference genome FASTA file
+        --gtf          Path to gene annotation GTF file
+
+    Optional Parameters:
+        --outdir       Output directory path [default: ./results]
+        --aligner      Alignment tool to use (star, hisat2, salmon) [default: star]
+        --paired_end   Whether the data is paired-end [default: true]
+        
+    Flags:
+        --skip_trimming    Skip the trimming step
+        --skip_qc         Skip the quality control step
+        --skip_deseq2     Skip the differential expression analysis
+        --help           Display this help message and exit
+
+    Example:
+        nextflow run main.nf \\
+            --reads '/path/to/reads/*_R{1,2}.fastq.gz' \\
+            --genome '/path/to/genome.fa' \\
+            --gtf '/path/to/annotation.gtf'
+    """
+}
+
+// Show help message if --help flag is used
+if (params.help) {
+    helpMessage()
+    exit 0
+}
+
 // Import modules
 include { FASTQC } from './modules/fastqc/main'
 include { MULTIQC } from './modules/multiqc/main'

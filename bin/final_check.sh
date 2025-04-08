@@ -1,117 +1,93 @@
 #!/bin/bash
 
-# Script to run a final check on the RNA-Seq Nextflow pipeline
-# This script verifies that all components are properly implemented and functional
+set -e  # Exit on error
+set -u  # Exit on undefined variable
 
-# Set variables
-PIPELINE_DIR=$(pwd)
-CHECK_RESULTS="${PIPELINE_DIR}/final_check_results.txt"
+echo "Running final pre-commit checks..."
 
-# Start with a clean results file
-echo "RNA-Seq Nextflow Pipeline - Final Check" > "${CHECK_RESULTS}"
-echo "Date: $(date)" >> "${CHECK_RESULTS}"
-echo "----------------------------------------" >> "${CHECK_RESULTS}"
+# Unset Python environment variables
+unset PYTHONHOME
+unset PYTHONPATH
 
-# Function to check if a file exists and report result
-check_file() {
-    local file=$1
-    local description=$2
-    
-    echo -n "Checking ${description}... " | tee -a "${CHECK_RESULTS}"
-    if [ -f "${file}" ]; then
-        echo "OK" | tee -a "${CHECK_RESULTS}"
-        return 0
-    else
-        echo "MISSING" | tee -a "${CHECK_RESULTS}"
+# Check if Python 3 is installed
+if ! command -v python3 &> /dev/null; then
+    echo "ERROR: Python 3 is not installed!"
+    exit 1
+fi
+
+# Check if required Python tools are installed
+check_python_tool() {
+    if ! python3 -m $1 --help &> /dev/null; then
+        echo "ERROR: $1 is not installed!"
+        echo "Please install it using: pip3 install $1"
         return 1
     fi
+    return 0
 }
 
-# Function to check if a directory exists and report result
-check_directory() {
-    local dir=$1
-    local description=$2
-    
-    echo -n "Checking ${description}... " | tee -a "${CHECK_RESULTS}"
-    if [ -d "${dir}" ]; then
-        echo "OK" | tee -a "${CHECK_RESULTS}"
-        return 0
-    else
-        echo "MISSING" | tee -a "${CHECK_RESULTS}"
-        return 1
+# Check for required Python tools
+echo "Checking for required Python tools..."
+required_tools=("flake8" "black")
+tools_missing=0
+
+for tool in "${required_tools[@]}"; do
+    if ! check_python_tool "$tool"; then
+        tools_missing=1
     fi
+done
+
+if [ $tools_missing -eq 1 ]; then
+    echo "Please install missing tools and try again."
+    echo "You can install all required tools with:"
+    echo "pip3 install flake8 black"
+    exit 1
+fi
+
+# Check Python code style
+echo "Checking Python code style..."
+cd .. && {
+    python3 -m flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+    python3 -m black --check .
 }
+cd - > /dev/null
 
-# Check core pipeline files
-echo "Core Pipeline Files:" | tee -a "${CHECK_RESULTS}"
-check_file "${PIPELINE_DIR}/main.nf" "main workflow file"
-check_file "${PIPELINE_DIR}/nextflow.config" "nextflow configuration file"
-check_file "${PIPELINE_DIR}/README.md" "documentation file"
-echo "" >> "${CHECK_RESULTS}"
+# Check Nextflow syntax
+echo "Checking Nextflow syntax..."
+cd .. && {
+    nextflow run main.nf --help > /dev/null || {
+        echo "ERROR: Nextflow syntax check failed!"
+        exit 1
+    }
+    echo "✓ Nextflow syntax check passed"
+}
+cd - > /dev/null
 
-# Check module directories
-echo "Module Directories:" | tee -a "${CHECK_RESULTS}"
-check_directory "${PIPELINE_DIR}/modules/fastqc" "FastQC module"
-check_directory "${PIPELINE_DIR}/modules/multiqc" "MultiQC module"
-check_directory "${PIPELINE_DIR}/modules/trimming" "Trimming module"
-check_directory "${PIPELINE_DIR}/modules/alignment" "Alignment module"
-check_directory "${PIPELINE_DIR}/modules/quantification" "Quantification module"
-check_directory "${PIPELINE_DIR}/modules/deseq2" "DESeq2 module"
-check_directory "${PIPELINE_DIR}/modules/reporting" "Reporting module"
-echo "" >> "${CHECK_RESULTS}"
+# Run minimal test
+echo "Running minimal pipeline test..."
+./test_pipeline_mini.sh
 
-# Check Docker files
-echo "Docker Files:" | tee -a "${CHECK_RESULTS}"
-check_file "${PIPELINE_DIR}/docker/Dockerfile.base" "base Dockerfile"
-check_file "${PIPELINE_DIR}/docker/Dockerfile.fastqc" "FastQC Dockerfile"
-check_file "${PIPELINE_DIR}/docker/Dockerfile.star" "STAR Dockerfile"
-check_file "${PIPELINE_DIR}/docker/Dockerfile.deseq2" "DESeq2 Dockerfile"
-check_file "${PIPELINE_DIR}/docker/build_containers.sh" "container build script"
-echo "" >> "${CHECK_RESULTS}"
+# Check Docker containers
+echo "Checking Docker containers..."
+./check_containers.sh
+if [ $? -ne 0 ]; then
+    echo "ERROR: Container check failed!"
+    exit 1
+fi
 
-# Check CI/CD files
-echo "CI/CD Files:" | tee -a "${CHECK_RESULTS}"
-check_file "${PIPELINE_DIR}/.github/workflows/ci.yml" "CI workflow"
-check_file "${PIPELINE_DIR}/.github/workflows/release.yml" "release workflow"
-check_file "${PIPELINE_DIR}/.github/workflows/lint.yml" "lint workflow"
-check_file "${PIPELINE_DIR}/.github/workflows/docs.yml" "docs workflow"
-echo "" >> "${CHECK_RESULTS}"
+# Check for required files
+echo "Checking for required files..."
+required_files=(
+    "main.nf"
+    "nextflow.config"
+    "README.md"
+    "test_data/test_data_generator.py"
+)
 
-# Check test files
-echo "Test Files:" | tee -a "${CHECK_RESULTS}"
-check_file "${PIPELINE_DIR}/bin/test_pipeline_mini.sh" "mini test script"
-check_file "${PIPELINE_DIR}/bin/test_pipeline_ecoli.sh" "E. coli test script"
-check_file "${PIPELINE_DIR}/bin/test_pipeline_synthetic.sh" "synthetic test script"
-check_file "${PIPELINE_DIR}/bin/test_pipeline_human.sh" "human test script"
-echo "" >> "${CHECK_RESULTS}"
+for file in "${required_files[@]}"; do
+    if [ ! -f "../$file" ]; then
+        echo "ERROR: Required file $file not found!"
+        exit 1
+    fi
+done
 
-# Check documentation files
-echo "Documentation Files:" | tee -a "${CHECK_RESULTS}"
-check_file "${PIPELINE_DIR}/README.md" "README file"
-check_file "${PIPELINE_DIR}/blog_post.md" "blog post"
-echo "" >> "${CHECK_RESULTS}"
-
-# Check release files
-echo "Release Files:" | tee -a "${CHECK_RESULTS}"
-check_file "${PIPELINE_DIR}/bin/create_release_package.sh" "release package script"
-echo "" >> "${CHECK_RESULTS}"
-
-# Count total files in the project
-total_files=$(find "${PIPELINE_DIR}" -type f -not -path "*/\.*" -not -path "*/release/*" -not -path "*/results*/*" -not -path "*/work/*" -not -path "*/test_data*/*" | wc -l)
-echo "Total files in project: ${total_files}" | tee -a "${CHECK_RESULTS}"
-
-# Generate a final summary
-echo "" >> "${CHECK_RESULTS}"
-echo "Final Summary:" | tee -a "${CHECK_RESULTS}"
-echo "The RNA-Seq Nextflow pipeline has been successfully implemented with all required components." | tee -a "${CHECK_RESULTS}"
-echo "The pipeline includes quality control, alignment, quantification, differential expression analysis, and reporting modules." | tee -a "${CHECK_RESULTS}"
-echo "Docker containerization and CI/CD with GitHub Actions have been set up for reproducibility and automated testing." | tee -a "${CHECK_RESULTS}"
-echo "Multiple test datasets and comprehensive documentation have been provided for users." | tee -a "${CHECK_RESULTS}"
-echo "" >> "${CHECK_RESULTS}"
-echo "The pipeline is ready for delivery." | tee -a "${CHECK_RESULTS}"
-
-echo "Final check completed. Results saved to ${CHECK_RESULTS}"
-
-# Create the release package
-echo "Creating release package..."
-bash "${PIPELINE_DIR}/bin/create_release_package.sh"
+echo "All checks passed successfully!"
