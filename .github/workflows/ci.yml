@@ -36,6 +36,12 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
+      - name: Verify Docker configuration
+        run: |
+          docker info
+          docker version
+          echo "Docker daemon is running and configured"
+
       - name: Cache Docker images
         uses: actions/cache@v3
         with:
@@ -52,6 +58,10 @@ jobs:
 
       - name: Pull Docker images
         run: |
+          # Pull R base container first
+          docker pull quay.io/biocontainers/r-base:4.1.0
+          
+          # Pull other containers
           docker pull quay.io/biocontainers/fastqc:0.11.9--0
           docker pull quay.io/biocontainers/multiqc:1.12--pyhdfd78af_0
           docker pull quay.io/biocontainers/trimmomatic:0.39--hdfd78af_2
@@ -59,6 +69,9 @@ jobs:
           docker pull quay.io/biocontainers/salmon:1.5.2--h84f40af_0
           docker pull quay.io/biocontainers/subread:2.0.1--hed695b0_0
           docker pull quay.io/biocontainers/bioconductor-deseq2:1.32.0--r41h399db7b_0
+          
+          # Verify all images were pulled successfully
+          docker images | grep "quay.io/biocontainers/"
 
       - name: Generate test data
         run: |

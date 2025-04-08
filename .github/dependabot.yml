@@ -1,5 +1,19 @@
 version: 2
 updates:
+  # Python dependencies
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "python"
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+    commit-message:
+      prefix: "pip"
+      include: "scope"
+
   # GitHub Actions dependencies
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -8,6 +22,10 @@ updates:
     labels:
       - "dependencies"
       - "github-actions"
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "github-actions"
+      include: "scope"
 
   # Docker dependencies
   - package-ecosystem: "docker"
@@ -17,12 +35,7 @@ updates:
     labels:
       - "dependencies"
       - "docker"
-
-  # Python dependencies
-  - package-ecosystem: "pip"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    labels:
-      - "dependencies"
-      - "python" 
+    open-pull-requests-limit: 10
+    commit-message:
+      prefix: "docker"
+      include: "scope" 

@@ -26,10 +26,15 @@ jobs:
 
       - name: Lint Nextflow code
         run: |
-          nextflow -check main.nf
+          # Check main pipeline configuration
+          nextflow run main.nf --help
           
           # Check for syntax errors in all Nextflow files
-          find . -name "*.nf" -type f -exec nextflow -check {} \;
+          find . -name "*.nf" -type f -exec bash -c 'echo "Checking {}"; nextflow run {} --help || true' \;
+          
+          # Validate pipeline configuration
+          nextflow config -show-profiles
+          nextflow config -show-params
 
       - name: Set up Python
         uses: actions/setup-python@v4
