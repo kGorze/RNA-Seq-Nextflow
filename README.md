@@ -260,6 +260,26 @@ The pipeline includes several test datasets for validation and testing:
 - **R Markdown**: Generation of comprehensive HTML reports
 - **Data Visualization**: Interactive plots and tables
 
+## Results
+
+What could you expect from using that pipeline:
+   results -> fastQC/multiQC: 
+      - this is quality control over the transcript and sequencing(*fastqc.html)
+      - the adapters used in the sequencing(which you need to provide for yourself)(illumina_adapters.fa/illumina_adapters.txt)
+   results -> featurecounts:
+      - report about reads categorized in your BAM file(feature assignment)
+      - gene lengths in the merge gene counts, only from one sample but could be set for more(reference from GTF/GFF annotation)
+      - place in which those transcripts were located(on the genome - the chromosome, the start and the end coordintates, the strand orientation, length in bp's), the whole strand
+      - summary of transcirpts in the table
+   results -> star:
+      - Aligned read files BAM file(s): One or more BAM files (e.g., Aligned.out.bam) containing the reads mapped to the reference genome.
+      - Alignment summary logs:
+         Log.final.out: A summary log detailing the alignment performance (e.g., percentage of uniquely mapped reads, number of reads processed).
+         Log.out: A detailed log capturing runtime information, warnings, and additional performance metrics.
+      - Splice junction information SJ.out.tab: A file listing all the splice junctions detected during the alignment process, which can be useful for downstream transcript isoform discovery or validation.
+   results -> trimmed
+      - illumina truqes adapter sequences files used for adapter trimming in RNA-seq
+
 ## Customization
 
 ### Configuration Files
