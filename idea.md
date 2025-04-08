@@ -1,7 +1,3 @@
-Here’s a concrete idea for a self-contained “portfolio project” that will showcase your Nextflow skills from end-to-end, incorporate bioinformatics best practices, and give you something tangible to highlight on GitHub and in a blog post:
-
----
-
 ## Project Idea: A Reproducible RNA-Seq Pipeline in Nextflow
 
 ### Overview

@@ -1,0 +1,83 @@
+name: Lint
+# This workflow checks the code quality of the RNA-Seq Nextflow pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Install Nextflow
+        run: |
+          wget -qO- https://get.nextflow.io | bash
+          chmod +x nextflow
+          sudo mv nextflow /usr/local/bin/
+
+      - name: Lint Nextflow code
+        run: |
+          nextflow -check main.nf
+          
+          # Check for syntax errors in all Nextflow files
+          find . -name "*.nf" -type f -exec nextflow -check {} \;
+
+      - name: Set up Python
+        uses: actions/setup-python@v3
+        with:
+          python-version: '3.8'
+          cache: 'pip'
+
+      - name: Install Python linting tools
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 black
+
+      - name: Lint Python code
+        run: |
+          # Check Python code style with flake8
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          
+          # Check Python code formatting with black
+          black --check .
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Cache R packages
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: ${{ runner.os }}-r-${{ hashFiles('**/DESCRIPTION') }}
+          restore-keys: |
+            ${{ runner.os }}-r-
+
+      - name: Install R linting tools
+        run: |
+          Rscript -e 'install.packages("lintr", repos = "https://cloud.r-project.org")'
+
+      - name: Lint R code
+        run: |
+          # Check R code style with lintr
+          Rscript -e 'library(lintr); lint_dir(".", pattern = "\\.[rR]$")'
+
+      - name: Check Docker files
+        run: |
+          # Check Dockerfile syntax
+          find ./docker -name "Dockerfile*" -type f -exec docker run --rm -i hadolint/hadolint < {} \;
+
+      - name: Check YAML files
+        run: |
+          pip install yamllint
+          yamllint -c .github/yamllint-config.yml .github/workflows/

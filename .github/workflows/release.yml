@@ -1,0 +1,94 @@
+name: Release
+# This workflow creates a new release of the RNA-Seq Nextflow pipeline
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker images
+        run: |
+          cd docker
+          chmod +x build_containers.sh
+          ./build_containers.sh
+          
+          # Push images to Docker Hub
+          VERSION=${GITHUB_REF#refs/tags/v}
+          DOCKER_REPO="rnaseq-pipeline"
+          
+          docker push ${DOCKER_REPO}/base:${VERSION}
+          docker push ${DOCKER_REPO}/fastqc:${VERSION}
+          docker push ${DOCKER_REPO}/multiqc:${VERSION}
+          docker push ${DOCKER_REPO}/trimmomatic:${VERSION}
+          docker push ${DOCKER_REPO}/star:${VERSION}
+          docker push ${DOCKER_REPO}/hisat2:${VERSION}
+          docker push ${DOCKER_REPO}/salmon:${VERSION}
+          docker push ${DOCKER_REPO}/featurecounts:${VERSION}
+          docker push ${DOCKER_REPO}/deseq2:${VERSION}
+
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v0.4.4
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create GitHub release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            # RNA-Seq Nextflow Pipeline Release ${{ github.ref_name }}
+            
+            ## Changes
+            ${{ steps.changelog.outputs.changelog }}
+            
+            ## Installation
+            ```bash
+            nextflow pull username/rnaseq-nextflow-pipeline -r ${{ github.ref_name }}
+            ```
+            
+            ## Usage
+            ```bash
+            nextflow run username/rnaseq-nextflow-pipeline -profile docker --reads '/path/to/reads/*_R{1,2}.fastq.gz' --genome '/path/to/reference.fa' --gtf '/path/to/annotation.gtf'
+            ```
+            
+            For more information, please refer to the documentation.
+          draft: false
+          prerelease: false
+
+      - name: Zip pipeline for distribution
+        run: |
+          zip -r rnaseq-nextflow-pipeline.zip . -x "*.git*" -x "*.github*" -x "work/*" -x "results/*"
+
+      - name: Upload pipeline zip to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./rnaseq-nextflow-pipeline.zip
+          asset_name: rnaseq-nextflow-pipeline-${{ github.ref_name }}.zip
+          asset_content_type: application/zip
