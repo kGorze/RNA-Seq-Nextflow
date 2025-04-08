@@ -2,3 +2,8 @@
 work/
 .nextflow/
 results/star/index
+results/fastqc/
+results/featurecounts/
+results/multiqc/
+results/star/
+results/trimmed/
