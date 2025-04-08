@@ -19,8 +19,8 @@ workflow FEATURECOUNTS {
     
     // Merge counts into a single matrix
     MERGE_COUNTS(
-        FEATURECOUNTS_GENE.out.counts.collect(),
-        FEATURECOUNTS_TRANSCRIPT.out.counts.collect()
+        FEATURECOUNTS_GENE.out.counts.map { meta, file -> file }.collect(),
+        FEATURECOUNTS_TRANSCRIPT.out.counts.map { meta, file -> file }.collect()
     )
     
     emit:
@@ -33,7 +33,7 @@ workflow FEATURECOUNTS {
 }
 
 process FEATURECOUNTS_GENE {
-    tag "$sample_id"
+    tag "${meta.id}"
     label 'process_medium'
     
     container 'quay.io/biocontainers/subread:2.0.1--hed695b0_0'
@@ -41,15 +41,15 @@ process FEATURECOUNTS_GENE {
     publishDir "${params.outdir}/featurecounts/gene", mode: 'copy'
     
     input:
-    tuple val(sample_id), path(bam)
+    tuple val(meta), path(bam)
     path gtf
     
     output:
-    tuple val(sample_id), path("${sample_id}.gene_counts.txt"), emit: counts
-    path "${sample_id}.gene_counts.txt.summary", emit: log
+    tuple val(meta), path("${meta.id}.gene_counts.txt"), emit: counts
+    path "${meta.id}.gene_counts.txt.summary", emit: log
     
     script:
-    def prefix = "${sample_id}"
+    def prefix = "${meta.id}"
     
     // Set strand parameter based on strandedness
     def strand_param = params.strandedness == 'forward' ? '-s 1' : 
@@ -71,7 +71,7 @@ process FEATURECOUNTS_GENE {
 }
 
 process FEATURECOUNTS_TRANSCRIPT {
-    tag "$sample_id"
+    tag "${meta.id}"
     label 'process_medium'
     
     container 'quay.io/biocontainers/subread:2.0.1--hed695b0_0'
@@ -79,15 +79,15 @@ process FEATURECOUNTS_TRANSCRIPT {
     publishDir "${params.outdir}/featurecounts/transcript", mode: 'copy'
     
     input:
-    tuple val(sample_id), path(bam)
+    tuple val(meta), path(bam)
     path gtf
     
     output:
-    tuple val(sample_id), path("${sample_id}.transcript_counts.txt"), emit: counts
-    path "${sample_id}.transcript_counts.txt.summary", emit: log
+    tuple val(meta), path("${meta.id}.transcript_counts.txt"), emit: counts
+    path "${meta.id}.transcript_counts.txt.summary", emit: log
     
     script:
-    def prefix = "${sample_id}"
+    def prefix = "${meta.id}"
     
     // Set strand parameter based on strandedness
     def strand_param = params.strandedness == 'forward' ? '-s 1' : 
@@ -111,7 +111,7 @@ process FEATURECOUNTS_TRANSCRIPT {
 process MERGE_COUNTS {
     label 'process_low'
     
-    container 'quay.io/biocontainers/r-base:4.1.0'
+    container 'rocker/r-base:4.1.0'
     
     publishDir "${params.outdir}/featurecounts/merged", mode: 'copy'
     
@@ -136,7 +136,8 @@ process MERGE_COUNTS {
         # Process each count file
         for (file in count_files) {
             # Extract sample name from filename
-            sample_name <- sub("\\..*counts\\.txt\$", "", basename(file))
+            filename <- basename(file)
+            sample_name <- sub("_counts.txt", "", filename)
             sample_names <- c(sample_names, sample_name)
             
             # Read count data (skip header lines)
@@ -162,10 +163,10 @@ process MERGE_COUNTS {
     }
     
     # Get list of gene count files
-    gene_files <- list.files(path=".", pattern="gene_counts.txt\$", full.names=TRUE)
+    gene_files <- list.files(path=".", pattern="gene_counts.txt", full.names=TRUE)
     
     # Get list of transcript count files
-    tx_files <- list.files(path=".", pattern="transcript_counts.txt\$", full.names=TRUE)
+    tx_files <- list.files(path=".", pattern="transcript_counts.txt", full.names=TRUE)
     
     # Merge gene counts
     gene_samples <- merge_count_files(gene_files, "merged_gene_counts.csv")

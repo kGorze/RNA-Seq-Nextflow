@@ -1,0 +1,4 @@
+Module	Section	Sample Name	Source
+featureCounts	all_sections	sample1	/home/konrad_guest/ExternalDisk/nfproject/work/18/de0837de976c5dc36b1efab91d2c1a/sample1.gene_counts.txt.summary
+FastQC	all_sections	sample1_R2	/home/konrad_guest/ExternalDisk/nfproject/work/18/de0837de976c5dc36b1efab91d2c1a/sample1_R2_fastqc.zip
+FastQC	all_sections	sample1_R1	/home/konrad_guest/ExternalDisk/nfproject/work/18/de0837de976c5dc36b1efab91d2c1a/sample1_R1_fastqc.zip

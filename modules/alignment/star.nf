@@ -7,110 +7,84 @@
 
 workflow STAR {
     take:
-    reads_ch     // Channel with sample_id and reads
-    genome_file  // Reference genome FASTA
-    gtf_file     // Gene annotation GTF
-    
+        reads
+        genome
+        annotation
+
     main:
-    // Generate STAR index
-    STAR_INDEX(genome_file, gtf_file)
-    
-    // Align reads with STAR
-    STAR_ALIGN(reads_ch, STAR_INDEX.out.index, gtf_file)
-    
-    // Sort and index BAM files
-    SAMTOOLS_SORT_INDEX(STAR_ALIGN.out.bam)
-    
-    // Generate alignment statistics
-    SAMTOOLS_STATS(SAMTOOLS_SORT_INDEX.out.sorted_bam)
-    
+        STAR_INDEX(genome, annotation)
+        STAR_ALIGN(reads, STAR_INDEX.out.index, annotation)
+
     emit:
-    bam = SAMTOOLS_SORT_INDEX.out.sorted_bam
-    bai = SAMTOOLS_SORT_INDEX.out.bam_index
-    stats = SAMTOOLS_STATS.out.stats
-    logs = STAR_ALIGN.out.log
+        bam = STAR_ALIGN.out.bam
+        counts = STAR_ALIGN.out.counts
+        junctions = STAR_ALIGN.out.junctions
 }
 
 process STAR_INDEX {
-    label 'process_high'
-    
-    container 'quay.io/biocontainers/star:2.7.9a--h9ee0642_0'
-    
-    publishDir "${params.outdir}/star/index", mode: 'copy'
-    
+    tag "${genome.simpleName}"
+    container "quay.io/biocontainers/star:2.7.9a--h9ee0642_0"
+    publishDir path: "${params.outdir}/star/index", mode: 'copy'
+
     input:
-    path genome
-    path gtf
-    
+        path genome
+        path gtf
+
     output:
-    path "star_index", emit: index
-    
+        path "star_index", emit: index
+
     script:
-    """
-    mkdir -p star_index
-    
-    STAR --runMode genomeGenerate \\
-        --runThreadN ${task.cpus} \\
-        --genomeDir star_index \\
-        --genomeFastaFiles ${genome} \\
-        --sjdbGTFfile ${gtf} \\
-        --sjdbOverhang 100 \\
-        --genomeSAindexNbases 11
-    """
+        """
+        mkdir star_index
+        STAR --runMode genomeGenerate \\
+            --runThreadN ${task.cpus} \\
+            --genomeDir star_index \\
+            --genomeFastaFiles ${genome} \\
+            --sjdbGTFfile ${gtf} \\
+            --sjdbOverhang 100
+        """
 }
 
 process STAR_ALIGN {
-    tag "$sample_id"
-    label 'process_high'
-    
-    container 'quay.io/biocontainers/star:2.7.9a--h9ee0642_0'
-    
-    publishDir "${params.outdir}/star/aligned", mode: 'copy'
-    
+    tag "${meta.id}"
+    container "quay.io/biocontainers/star:2.7.9a--h9ee0642_0"
+    publishDir path: "${params.outdir}/star/aligned", mode: 'copy'
+
     input:
-    tuple val(sample_id), path(reads)
-    path index
-    path gtf
-    
+        tuple val(meta), path(reads)
+        path index
+        path gtf
+
     output:
-    tuple val(sample_id), path("${sample_id}.Aligned.out.bam"), emit: bam
-    path "*.Log.*", emit: log
-    path "*.SJ.out.tab", emit: splice_junctions
-    path "*.ReadsPerGene.out.tab", optional: true, emit: gene_counts
-    
+        tuple val(meta), path("${meta.id}.Aligned.out.bam"), emit: bam
+        tuple val(meta), path("${meta.id}.ReadsPerGene.out.tab"), emit: counts
+        tuple val(meta), path("${meta.id}.SJ.out.tab"), emit: junctions
+
     script:
-    def prefix = "${sample_id}"
-    def read_args = params.paired_end ? "--readFilesIn ${reads[0]} ${reads[1]}" : "--readFilesIn ${reads}"
-    def strandedness = ""
-    if (params.strandedness == 'forward') {
-        strandedness = "--outSAMstrandField intronMotif --outFilterIntronMotifs RemoveNoncanonical"
-    } else if (params.strandedness == 'reverse') {
-        strandedness = "--outSAMstrandField intronMotif --outFilterIntronMotifs RemoveNoncanonical"
-    }
-    
-    """
-    STAR --runMode alignReads \\
-        --runThreadN ${task.cpus} \\
-        --genomeDir ${index} \\
-        --readFilesCommand zcat \\
-        ${read_args} \\
-        --outFileNamePrefix ${prefix}. \\
-        --outSAMtype BAM Unsorted \\
-        --outSAMattributes Standard \\
-        --outSAMunmapped Within \\
-        --outFilterType BySJout \\
-        --outFilterMultimapNmax 20 \\
-        --outFilterMismatchNmax 999 \\
-        --outFilterMismatchNoverReadLmax 0.04 \\
-        --alignIntronMin 20 \\
-        --alignIntronMax 1000000 \\
-        --alignMatesGapMax 1000000 \\
-        --alignSJoverhangMin 8 \\
-        --alignSJDBoverhangMin 1 \\
-        --sjdbGTFfile ${gtf} \\
-        --quantMode GeneCounts \\
-        ${strandedness}
-    """
+        def prefix = meta.id
+        def read_args = reads instanceof List ? "--readFilesIn ${reads[0]} ${reads[1]}" : "--readFilesIn ${reads}"
+        """
+        STAR --runMode alignReads \\
+            --runThreadN ${task.cpus} \\
+            --genomeDir ${index} \\
+            --readFilesCommand zcat \\
+            ${read_args} \\
+            --outFileNamePrefix ${prefix}. \\
+            --outSAMtype BAM Unsorted \\
+            --outSAMattributes Standard \\
+            --outSAMunmapped Within \\
+            --outFilterType BySJout \\
+            --outFilterMultimapNmax 20 \\
+            --outFilterMismatchNmax 999 \\
+            --outFilterMismatchNoverReadLmax 0.04 \\
+            --alignIntronMin 20 \\
+            --alignIntronMax 1000000 \\
+            --alignMatesGapMax 1000000 \\
+            --alignSJoverhangMin 8 \\
+            --alignSJDBoverhangMin 1 \\
+            --sjdbGTFfile ${gtf} \\
+            --quantMode GeneCounts
+        """
 }
 
 process SAMTOOLS_SORT_INDEX {

@@ -11,7 +11,7 @@ nextflow.enable.dsl = 2
 // Import modules
 include { FASTQC } from './modules/fastqc/main'
 include { MULTIQC } from './modules/multiqc/main'
-include { TRIMMOMATIC } from './modules/trimming/main'
+include { TRIMMOMATIC } from './modules/trimmomatic/main'
 include { STAR } from './modules/alignment/star'
 include { HISAT2 } from './modules/alignment/hisat2'
 include { SALMON } from './modules/quantification/salmon'
@@ -69,14 +69,19 @@ workflow {
     if (!params.skip_trimming) {
         TRIMMOMATIC(read_pairs_ch)
         trimmed_reads_ch = TRIMMOMATIC.out.trimmed_reads
-        trimming_logs = TRIMMOMATIC.out.log
+        trimming_logs = TRIMMOMATIC.out.log_file
     } else {
         trimmed_reads_ch = read_pairs_ch
     }
     
     // Alignment and quantification
     if (params.aligner == 'star') {
-        STAR(trimmed_reads_ch, genome_file, gtf_file)
+        // Format reads channel with metadata
+        star_reads_ch = trimmed_reads_ch.map { sample_id, reads -> 
+            def meta = [id: sample_id]
+            tuple(meta, reads)
+        }
+        STAR(star_reads_ch, genome_file, gtf_file)
         FEATURECOUNTS(STAR.out.bam, gtf_file)
         counts_ch = FEATURECOUNTS.out.merged_gene_counts
     } else if (params.aligner == 'hisat2') {

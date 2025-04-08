@@ -24,8 +24,8 @@ This pipeline performs RNA-Seq analysis from raw reads to differential expressio
 
 ```bash
 # Clone the repository
-git clone https://github.com/username/rnaseq-nextflow-pipeline.git
-cd rnaseq-nextflow-pipeline
+git clone https://github.com/kGorze/RNA-Seq-Nextflow
+cd RNA-Seq-Nextflow
 
 # Run the pipeline with test data
 nextflow run main.nf -profile test,docker
@@ -68,7 +68,7 @@ nextflow run main.nf \
 
 4. Clone the repository:
    ```bash
-   git clone https://github.com/username/rnaseq-nextflow-pipeline.git
+   git clone https://github.com/kGorze/RNA-Seq-Nextflow.git
    cd rnaseq-nextflow-pipeline
    ```
 
@@ -301,25 +301,7 @@ Each module can be customized by modifying its main script:
 | `Out of memory error` | Increase `--max_memory` parameter |
 | `CPU usage 100%` | Increase `--max_cpus` parameter |
 
-### Getting Help
-
-If you encounter issues not covered here, please open an issue on GitHub with:
-- The command you ran
-- The complete error message
-- Your Nextflow and Docker/Singularity versions
-- Any relevant log files
-
 ## Development
-
-### Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run tests with `bash bin/test_pipeline_mini.sh`
-5. Submit a pull request
 
 ### Testing
 
@@ -349,20 +331,9 @@ bash build_containers.sh
 ```
 
 ## Citation
-
 If you use this pipeline in your research, please cite:
 
 ```
-Author et al. (2025). A reproducible RNA-Seq analysis pipeline implemented in Nextflow.
-GitHub: https://github.com/username/rnaseq-nextflow-pipeline
+Konrad Gorzelanczyk et al. (2025). A reproducible RNA-Seq analysis pipeline implemented in Nextflow.
+GitHub: https://github.com/kGorze/RNA-Seq-Nextflow
 ```
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgements
-
-- [nf-core](https://nf-co.re/) for inspiration and best practices
-- [Nextflow](https://www.nextflow.io/) for the workflow management system
-- The developers of all the bioinformatics tools used in this pipeline

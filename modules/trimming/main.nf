@@ -17,7 +17,6 @@ workflow TRIMMOMATIC {
     
     emit:
     trimmed_reads = RUN_TRIMMOMATIC.out.trimmed_reads
-    log = RUN_TRIMMOMATIC.out.log
 }
 
 process CREATE_ADAPTER_FILES {
