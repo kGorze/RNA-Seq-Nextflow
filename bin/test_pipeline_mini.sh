@@ -18,7 +18,7 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 cd "$PROJECT_ROOT"
 
 # Generate small test data
-python3 test_data/test_data_generator.py --size small
+python3 test_data/test_data_generator.py --size tiny
 
 # Run the complete pipeline with small test data
 nextflow run main.nf \

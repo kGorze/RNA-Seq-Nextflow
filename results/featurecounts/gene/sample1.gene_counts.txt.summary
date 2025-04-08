@@ -1,6 +1,6 @@
 Status	sample1.Aligned.out.bam
 Assigned	0
-Unassigned_Unmapped	2000
+Unassigned_Unmapped	200
 Unassigned_Read_Type	0
 Unassigned_Singleton	0
 Unassigned_MappingQuality	0

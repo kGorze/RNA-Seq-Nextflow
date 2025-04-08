@@ -11,6 +11,13 @@ from Bio.SeqRecord import SeqRecord
 
 # Size configurations
 SIZE_CONFIGS = {
+    "tiny": {
+        "num_reads": 200,
+        "read_length": 50,
+        "num_chromosomes": 1,
+        "chr_length": 2000,
+        "num_genes": 2,
+    },
     "mini": {
         "num_reads": 1000,
         "read_length": 50,
@@ -98,11 +105,18 @@ def create_gtf_file(filename, size="medium"):
             strand = random.choice(["+", "-"])
 
             # Calculate gene coordinates with more space
-            gene_start = random.randint(
-                1000, config["chr_length"] - 15000
-            )  # Start further in
-            gene_length = random.randint(5000, 10000)  # Larger minimum gene length
-            gene_end = min(gene_start + gene_length, config["chr_length"] - 1000)
+            if size == "tiny":
+                # For tiny dataset, use smaller ranges
+                gene_start = random.randint(
+                    100, config["chr_length"] - 500
+                )  # Start further in
+                gene_length = random.randint(200, 400)  # Smaller minimum gene length
+                gene_end = min(gene_start + gene_length, config["chr_length"] - 100)
+            else:
+                # Original logic for larger datasets
+                gene_start = random.randint(1000, config["chr_length"] - 15000)
+                gene_length = random.randint(5000, 10000)
+                gene_end = min(gene_start + gene_length, config["chr_length"] - 1000)
 
             # Write gene entry
             f.write(
@@ -118,7 +132,10 @@ def create_gtf_file(filename, size="medium"):
 
             # Calculate feature lengths
             total_length = gene_end - gene_start + 1
-            utr_length = total_length // 10  # 10% for each UTR
+            if size == "tiny":
+                utr_length = total_length // 5  # 20% for each UTR in tiny dataset
+            else:
+                utr_length = total_length // 10  # 10% for each UTR in larger datasets
             exon_region_length = total_length - (
                 2 * utr_length
             )  # Remaining space for exons
@@ -132,7 +149,10 @@ def create_gtf_file(filename, size="medium"):
             )
 
             # Add exons
-            num_exons = random.randint(3, 5)
+            if size == "tiny":
+                num_exons = random.randint(2, 3)  # Fewer exons for tiny dataset
+            else:
+                num_exons = random.randint(3, 5)
             exon_length = exon_region_length // num_exons
             intron_length = (exon_region_length - (exon_length * num_exons)) // (
                 num_exons - 1
@@ -177,7 +197,7 @@ def main():
     )
     parser.add_argument(
         "--size",
-        choices=["mini", "small", "medium", "large"],
+        choices=["tiny", "mini", "small", "medium", "large"],
         default="medium",
         help="Size of the test dataset (default: medium)",
     )

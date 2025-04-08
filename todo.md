@@ -24,6 +24,6 @@
 - [x] Create blog post explaining pipeline architecture and usage
 - [x] Finalize and deliver project
 
-
-create a github workflow
-make zips in the release
+## Amends
+- [] Create a github workflow 
+- [] Make zips in the release  

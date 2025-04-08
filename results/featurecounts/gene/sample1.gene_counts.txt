@@ -1,17 +1,4 @@
-# Program:featureCounts v2.0.1; Command:"featureCounts" "-T" "2" "-p" "-s" "0" "-a" "test_annotation.gtf" "-g" "gene_id" "-o" "sample1.gene_counts.txt" "sample1.Aligned.out.bam" 
+# Program:featureCounts v2.0.1; Command:"featureCounts" "-T" "1" "-p" "-s" "0" "-a" "test_annotation.gtf" "-g" "gene_id" "-o" "sample1.gene_counts.txt" "sample1.Aligned.out.bam" 
 Geneid	Chr	Start	End	Strand	Length	sample1.Aligned.out.bam
-gene_0	chr1;chr1;chr1	4677;6709;8741	6708;8740;10772	-;-;-	6096	0
-gene_1	chr1;chr1;chr1;chr1	2237;3874;5511;7148	3872;5509;7146;8783	-;-;-;-	6544	0
-gene_2	chr1;chr1;chr1;chr1;chr1	2053;3449;4845;6241;7637	3448;4844;6240;7636;9032	+;+;+;+;+	6980	0
-gene_3	chr1;chr1;chr1	4609;6966;9323	6965;9322;11679	-;-;-	7071	0
-gene_4	chr1;chr1;chr1;chr1;chr1	3393;4273;5153;6033;6913	4272;5152;6032;6912;7792	+;+;+;+;+	4400	0
-gene_5	chr1;chr1;chr1;chr1;chr1	2868;3965;5062;6159;7256	3963;5060;6157;7254;8351	+;+;+;+;+	5480	0
-gene_6	chr1;chr1;chr1;chr1;chr1	5244;6193;7142;8091;9040	6192;7141;8090;9039;9988	-;-;-;-;-	4745	0
-gene_7	chr1;chr1;chr1	5178;7783;10388	7782;10387;12992	+;+;+	7815	0
-gene_8	chr1;chr1;chr1;chr1	2255;3891;5527;7163	3890;5526;7162;8798	-;-;-;-	6544	0
-gene_9	chr1;chr1;chr1;chr1	4074;5247;6420;7593	5245;6418;7591;8764	-;-;-;-	4688	0
-gene_10	chr1;chr1;chr1;chr1;chr1	2731;3873;5015;6157;7299	3872;5014;6156;7298;8440	-;-;-;-;-	5710	0
-gene_11	chr1;chr1;chr1;chr1;chr1	5176;6083;6990;7897;8804	6082;6989;7896;8803;9710	+;+;+;+;+	4535	0
-gene_12	chr1;chr1;chr1;chr1	2008;3854;5700;7546	3853;5699;7545;9391	+;+;+;+	7384	0
-gene_13	chr1;chr1;chr1;chr1	3971;5748;7525;9302	5747;7524;9301;11078	+;+;+;+	7108	0
-gene_14	chr1;chr1;chr1;chr1;chr1	3107;4356;5605;6854;8103	4355;5604;6853;8102;9351	-;-;-;-;-	6245	0
+gene_0	chr1;chr1	650;769	767;886	-;-	236	0
+gene_1	chr1;chr1	557;640	638;721	+;+	164	0

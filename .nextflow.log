@@ -1,41 +1,42 @@
-Apr-08 20:39:12.657 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile test,docker --reads 'test_data/sample*_R{1,2}.fastq.gz' --genome test_data/test_genome.fa --gtf test_data/test_annotation.gtf --outdir ./results --max_cpus 2 --max_memory 4.GB
-Apr-08 20:39:12.903 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.5
-Apr-08 20:39:12.934 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/konrad_guest/.nextflow/plugins; core-plugins: nf-amazon@2.9.2,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.4
-Apr-08 20:39:12.965 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
-Apr-08 20:39:12.966 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
-Apr-08 20:39:12.970 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
-Apr-08 20:39:12.995 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
-Apr-08 20:39:13.024 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/konrad_guest/ExternalDisk/nfproject/nextflow.config
-Apr-08 20:39:13.028 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/konrad_guest/ExternalDisk/nfproject/nextflow.config
-Apr-08 20:39:13.066 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/konrad_guest/.nextflow/secrets/store.json
-Apr-08 20:39:13.070 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@1a78dacd] - activable => nextflow.secret.LocalSecretsProvider@1a78dacd
-Apr-08 20:39:13.089 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `test,docker`
-Apr-08 20:39:14.083 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, test, singularity, aws, docker]
-Apr-08 20:39:14.138 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
-Apr-08 20:39:14.160 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [pedantic_celsius] DSL2 - revision: 512a8e7cb8
-Apr-08 20:39:14.164 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
-Apr-08 20:39:14.164 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
-Apr-08 20:39:14.224 [main] DEBUG nextflow.Session - Session UUID: 7a652d4c-823b-4019-b6dc-827330b403b8
-Apr-08 20:39:14.225 [main] DEBUG nextflow.Session - Run name: pedantic_celsius
-Apr-08 20:39:14.225 [main] DEBUG nextflow.Session - Executor pool size: 6
-Apr-08 20:39:14.235 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
-Apr-08 20:39:14.243 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=18; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Apr-08 20:39:14.271 [main] DEBUG nextflow.cli.CmdRun - 
+Apr-08 21:37:58.158 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -profile test,docker --reads 'test_data/sample*_R{1,2}.fastq.gz' --genome test_data/test_genome.fa --gtf test_data/test_annotation.gtf --outdir ./results --max_cpus 2 --max_memory 4.GB
+Apr-08 21:37:58.411 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.5
+Apr-08 21:37:58.447 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/home/konrad_guest/.nextflow/plugins; core-plugins: nf-amazon@2.9.2,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.4
+Apr-08 21:37:58.495 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Apr-08 21:37:58.497 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Apr-08 21:37:58.502 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Apr-08 21:37:58.521 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Apr-08 21:37:58.558 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /home/konrad_guest/ExternalDisk/nfproject/nextflow.config
+Apr-08 21:37:58.562 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /home/konrad_guest/ExternalDisk/nfproject/nextflow.config
+Apr-08 21:37:58.606 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /home/konrad_guest/.nextflow/secrets/store.json
+Apr-08 21:37:58.611 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@1a78dacd] - activable => nextflow.secret.LocalSecretsProvider@1a78dacd
+Apr-08 21:37:58.631 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `test,docker`
+Apr-08 21:37:59.866 [main] DEBUG nextflow.config.ConfigBuilder - Available config profiles: [standard, test, singularity, aws, docker]
+Apr-08 21:37:59.934 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 from script declaration
+Apr-08 21:37:59.956 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [gloomy_hopper] DSL2 - revision: 512a8e7cb8
+Apr-08 21:37:59.958 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Apr-08 21:37:59.959 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Apr-08 21:38:00.026 [main] DEBUG nextflow.Session - Session UUID: 6623e61a-d1b0-4d7a-ad8b-7435dac9a0ea
+Apr-08 21:38:00.027 [main] DEBUG nextflow.Session - Run name: gloomy_hopper
+Apr-08 21:38:00.027 [main] DEBUG nextflow.Session - Executor pool size: 6
+Apr-08 21:38:00.038 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Apr-08 21:38:00.055 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=18; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-08 21:38:00.080 [main] DEBUG nextflow.cli.CmdRun - 
   Version: 24.10.5 build 5935
   Created: 04-03-2025 17:55 UTC (18:55 CEST)
   System: Linux 6.8.0-57-generic
   Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 17.0.14+7-Ubuntu-122.04.1
   Encoding: UTF-8 (UTF-8)
-  Process: 13219@konrad-hp [127.0.1.1]
-  CPUs: 6 - Mem: 15 GB (2.3 GB) - Swap: 2 GB (2 GB)
-Apr-08 20:39:14.302 [main] DEBUG nextflow.Session - Work-dir: /home/konrad_guest/ExternalDisk/nfproject/work [ext2/ext3]
-Apr-08 20:39:14.336 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
-Apr-08 20:39:14.347 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
-Apr-08 20:39:14.382 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
-Apr-08 20:39:14.396 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 7; maxThreads: 1000
-Apr-08 20:39:14.620 [main] DEBUG nextflow.Session - Session start
-Apr-08 20:39:15.047 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
-Apr-08 20:39:16.263 [main] INFO  nextflow.Nextflow - 
+  Process: 31646@konrad-hp [127.0.1.1]
+  CPUs: 6 - Mem: 15 GB (1.6 GB) - Swap: 2 GB (1.7 GB)
+Apr-08 21:38:00.116 [main] DEBUG nextflow.Session - Work-dir: /home/konrad_guest/ExternalDisk/nfproject/work [ext2/ext3]
+Apr-08 21:38:00.158 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Apr-08 21:38:00.170 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Apr-08 21:38:00.244 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Apr-08 21:38:00.256 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 7; maxThreads: 1000
+Apr-08 21:38:00.454 [main] DEBUG nextflow.Session - Session start
+Apr-08 21:38:00.461 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /home/konrad_guest/ExternalDisk/nfproject/results/pipeline_trace.txt
+Apr-08 21:38:01.019 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Apr-08 21:38:02.409 [main] INFO  nextflow.Nextflow - 
 =======================================================
 RNA-Seq Nextflow Pipeline v1.0.0
 =======================================================
@@ -46,47 +47,47 @@ Aligner      : star
 Output dir   : ./results
 =======================================================
 
-Apr-08 20:39:16.439 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.440 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.448 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
-Apr-08 20:39:16.455 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=6; memory=15 GB; capacity=6; pollInterval=100ms; dumpInterval=5m
-Apr-08 20:39:16.459 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
-Apr-08 20:39:16.557 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.558 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.570 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.571 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.591 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.592 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.611 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.611 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.628 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.628 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.644 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.644 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.673 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.674 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.699 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.699 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.714 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.714 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.723 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
-Apr-08 20:39:16.724 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
-Apr-08 20:39:16.730 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: MERGE_COUNTS, VALIDATE_DESIGN_CONTRASTS, FASTQC:CREATE_ADAPTER_FILE, EXTRACT_SPLICE_SITES, FEATURECOUNTS_TRANSCRIPT, SALMON_TXIMPORT, CREATE_ADAPTER_FILE, STAR:STAR_ALIGN, FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT, SAMTOOLS_SORT_INDEX, FEATURECOUNTS_GENE, SALMON_INDEX, HISAT2_ALIGN, MULTIQC:CREATE_MULTIQC_CONFIG, FEATURECOUNTS:MERGE_COUNTS, HISAT2_INDEX, SAMTOOLS_STATS, TRIMMOMATIC:RUN_TRIMMOMATIC, FEATURECOUNTS:FEATURECOUNTS_GENE, GENERATE_TRANSCRIPTOME, FASTQC:RUN_FASTQC, DESEQ2_REPORT, CREATE_MULTIQC_CONFIG, STAR_INDEX, TRIMMOMATIC:CREATE_ADAPTER_FILE, STAR:STAR_INDEX, RUN_MULTIQC, MULTIQC:RUN_MULTIQC, RUN_FASTQC, STAR_ALIGN, SALMON_QUANT, DESEQ2_ANALYSIS, EXTRACT_EXONS, RUN_TRIMMOMATIC
-Apr-08 20:39:16.731 [main] DEBUG nextflow.Session - Igniting dataflow network (13)
-Apr-08 20:39:16.739 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: test_data/; pattern: sample*_R{1,2}.fastq.gz; options: [checkIfExists:true]
-Apr-08 20:39:16.740 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC:CREATE_ADAPTER_FILE
-Apr-08 20:39:16.741 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC:RUN_FASTQC
-Apr-08 20:39:16.741 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMOMATIC:CREATE_ADAPTER_FILE
-Apr-08 20:39:16.741 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMOMATIC:RUN_TRIMMOMATIC
-Apr-08 20:39:16.741 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > STAR:STAR_INDEX
-Apr-08 20:39:16.741 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > STAR:STAR_ALIGN
-Apr-08 20:39:16.741 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FEATURECOUNTS:FEATURECOUNTS_GENE
-Apr-08 20:39:16.741 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT
-Apr-08 20:39:16.742 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FEATURECOUNTS:MERGE_COUNTS
-Apr-08 20:39:16.745 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MULTIQC:CREATE_MULTIQC_CONFIG
-Apr-08 20:39:16.745 [PathVisitor-2] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: ./results/; pattern: **{_fastqc.zip,_fastqc.html,Log.*,*_stats.txt,*.summary}; options: [hidden:true]
-Apr-08 20:39:16.745 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MULTIQC:RUN_MULTIQC
-Apr-08 20:39:16.747 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+Apr-08 21:38:02.618 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.618 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.627 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Apr-08 21:38:02.636 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=6; memory=15 GB; capacity=6; pollInterval=100ms; dumpInterval=5m
+Apr-08 21:38:02.641 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Apr-08 21:38:02.757 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.757 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.774 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.775 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.802 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.802 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.828 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.828 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.848 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.848 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.869 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.870 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.888 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.888 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.928 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.929 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.945 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.945 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.960 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: local
+Apr-08 21:38:02.960 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Apr-08 21:38:02.969 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: MERGE_COUNTS, VALIDATE_DESIGN_CONTRASTS, FASTQC:CREATE_ADAPTER_FILE, EXTRACT_SPLICE_SITES, FEATURECOUNTS_TRANSCRIPT, SALMON_TXIMPORT, CREATE_ADAPTER_FILE, STAR:STAR_ALIGN, FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT, SAMTOOLS_SORT_INDEX, FEATURECOUNTS_GENE, SALMON_INDEX, HISAT2_ALIGN, MULTIQC:CREATE_MULTIQC_CONFIG, FEATURECOUNTS:MERGE_COUNTS, HISAT2_INDEX, SAMTOOLS_STATS, TRIMMOMATIC:RUN_TRIMMOMATIC, FEATURECOUNTS:FEATURECOUNTS_GENE, GENERATE_TRANSCRIPTOME, FASTQC:RUN_FASTQC, CREATE_MULTIQC_CONFIG, DESEQ2_REPORT, STAR_INDEX, TRIMMOMATIC:CREATE_ADAPTER_FILE, STAR:STAR_INDEX, RUN_MULTIQC, MULTIQC:RUN_MULTIQC, RUN_FASTQC, STAR_ALIGN, SALMON_QUANT, DESEQ2_ANALYSIS, EXTRACT_EXONS, RUN_TRIMMOMATIC
+Apr-08 21:38:02.970 [main] DEBUG nextflow.Session - Igniting dataflow network (13)
+Apr-08 21:38:02.979 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: test_data/; pattern: sample*_R{1,2}.fastq.gz; options: [checkIfExists:true]
+Apr-08 21:38:02.981 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC:CREATE_ADAPTER_FILE
+Apr-08 21:38:02.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FASTQC:RUN_FASTQC
+Apr-08 21:38:02.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMOMATIC:CREATE_ADAPTER_FILE
+Apr-08 21:38:02.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > TRIMMOMATIC:RUN_TRIMMOMATIC
+Apr-08 21:38:02.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > STAR:STAR_INDEX
+Apr-08 21:38:02.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > STAR:STAR_ALIGN
+Apr-08 21:38:02.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FEATURECOUNTS:FEATURECOUNTS_GENE
+Apr-08 21:38:02.982 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT
+Apr-08 21:38:02.983 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > FEATURECOUNTS:MERGE_COUNTS
+Apr-08 21:38:02.984 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MULTIQC:CREATE_MULTIQC_CONFIG
+Apr-08 21:38:02.985 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > MULTIQC:RUN_MULTIQC
+Apr-08 21:38:02.986 [PathVisitor-2] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: ./results/; pattern: **{_fastqc.zip,_fastqc.html,Log.*,*_stats.txt,*.summary}; options: [hidden:true]
+Apr-08 21:38:02.993 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
   Script_d750c1ad3e9d6fda: /home/konrad_guest/ExternalDisk/nfproject/./modules/trimmomatic/main.nf
   Script_7c440480eb0b2a6e: /home/konrad_guest/ExternalDisk/nfproject/./modules/deseq2/main.nf
   Script_315e9f6a9ecb42f4: /home/konrad_guest/ExternalDisk/nfproject/./modules/alignment/star.nf
@@ -96,67 +97,224 @@ Apr-08 20:39:16.747 [main] DEBUG nextflow.script.ScriptRunner - Parsed script fi
   Script_bcedd759713c1a69: /home/konrad_guest/ExternalDisk/nfproject/./modules/quantification/salmon.nf
   Script_fd150552b7a82bad: /home/konrad_guest/ExternalDisk/nfproject/./modules/quantification/featurecounts.nf
   Script_7c64dab2245e0be9: /home/konrad_guest/ExternalDisk/nfproject/./modules/alignment/hisat2.nf
-Apr-08 20:39:16.747 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
-Apr-08 20:39:16.748 [main] DEBUG nextflow.Session - Session await
-Apr-08 20:39:16.977 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:39:16.983 [Task submitter] INFO  nextflow.Session - [75/0cb127] Submitted process > FASTQC:CREATE_ADAPTER_FILE
-Apr-08 20:39:17.021 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:39:17.023 [Task submitter] INFO  nextflow.Session - [65/f235d4] Submitted process > TRIMMOMATIC:CREATE_ADAPTER_FILE
-Apr-08 20:39:17.035 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:39:17.036 [Task submitter] INFO  nextflow.Session - [b3/b7da4f] Submitted process > MULTIQC:CREATE_MULTIQC_CONFIG
-Apr-08 20:39:17.049 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: FASTQC:CREATE_ADAPTER_FILE; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/75/0cb1278b1ddee8460695fef7062d1e]
-Apr-08 20:39:17.051 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=18; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Apr-08 20:39:17.070 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:39:17.072 [Task submitter] INFO  nextflow.Session - [9f/9702e0] Submitted process > STAR:STAR_INDEX (test_genome)
-Apr-08 20:39:17.106 [TaskFinalizer-1] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=18; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
-Apr-08 20:39:17.141 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: MULTIQC:CREATE_MULTIQC_CONFIG; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/b3/b7da4f88212be55d4300f61636cc53]
-Apr-08 20:39:17.151 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:39:17.152 [Task submitter] INFO  nextflow.Session - [6d/5550eb] Submitted process > FASTQC:RUN_FASTQC (sample2)
-Apr-08 20:39:18.816 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: TRIMMOMATIC:CREATE_ADAPTER_FILE; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/65/f235d4c3f76aefaccdae195fc7cb8d]
-Apr-08 20:39:18.833 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:39:18.837 [Task submitter] INFO  nextflow.Session - [29/174e72] Submitted process > FASTQC:RUN_FASTQC (sample1)
-Apr-08 20:40:02.942 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: STAR:STAR_INDEX (test_genome); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/9f/9702e04b56e319bb3c4ca5ff7fd786]
-Apr-08 20:40:02.958 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:40:02.959 [Task submitter] INFO  nextflow.Session - [52/ed3a98] Submitted process > MULTIQC:RUN_MULTIQC
-Apr-08 20:40:03.000 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: FASTQC:RUN_FASTQC (sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/29/174e7227dd53d97b9357ecfa1f9360]
-Apr-08 20:40:03.014 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:40:03.014 [Task submitter] INFO  nextflow.Session - [fd/8316d8] Submitted process > TRIMMOMATIC:RUN_TRIMMOMATIC (2)
-Apr-08 20:40:03.018 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: FASTQC:RUN_FASTQC (sample2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/6d/5550ebf5a09ffcc660d279d73de678]
-Apr-08 20:40:03.059 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:40:03.063 [Task submitter] INFO  nextflow.Session - [65/256b2e] Submitted process > TRIMMOMATIC:RUN_TRIMMOMATIC (1)
-Apr-08 20:40:44.166 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: TRIMMOMATIC:RUN_TRIMMOMATIC (2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/fd/8316d891ea8287adf1becbac83a574]
-Apr-08 20:40:44.196 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: TRIMMOMATIC:RUN_TRIMMOMATIC (1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/65/256b2e1562c36080e03897f8aa848b]
-Apr-08 20:40:44.226 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:40:44.227 [Task submitter] INFO  nextflow.Session - [d9/d3b52c] Submitted process > STAR:STAR_ALIGN (sample2)
-Apr-08 20:40:44.240 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:40:44.240 [Task submitter] INFO  nextflow.Session - [7b/e44b12] Submitted process > STAR:STAR_ALIGN (sample1)
-Apr-08 20:40:56.203 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: STAR:STAR_ALIGN (sample2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/d9/d3b52c93e87114f88c393eec946d8f]
-Apr-08 20:40:56.263 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:40:56.263 [Task submitter] INFO  nextflow.Session - [7c/960392] Submitted process > FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT (sample2)
-Apr-08 20:41:01.040 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT (sample2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/7c/96039269dc15d1321e23ac276182e8]
-Apr-08 20:41:01.052 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:41:01.053 [Task submitter] INFO  nextflow.Session - [6a/ca660b] Submitted process > FEATURECOUNTS:FEATURECOUNTS_GENE (sample2)
-Apr-08 20:41:03.842 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: FEATURECOUNTS:FEATURECOUNTS_GENE (sample2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/6a/ca660b228bc6fcb7b63bc09f7e82f9]
-Apr-08 20:41:10.983 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: STAR:STAR_ALIGN (sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/7b/e44b121c86d243ddb3458f1ac0783a]
-Apr-08 20:41:11.018 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:41:11.019 [Task submitter] INFO  nextflow.Session - [f1/58c9f9] Submitted process > FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT (sample1)
-Apr-08 20:41:11.024 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:41:11.027 [Task submitter] INFO  nextflow.Session - [16/8436aa] Submitted process > FEATURECOUNTS:FEATURECOUNTS_GENE (sample1)
-Apr-08 20:41:12.594 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: MULTIQC:RUN_MULTIQC; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/52/ed3a989416d1edf798cdb6625df4cc]
-Apr-08 20:41:13.771 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT (sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/f1/58c9f9a9efeb1fb68ab2d06bfa650f]
-Apr-08 20:41:13.882 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: FEATURECOUNTS:FEATURECOUNTS_GENE (sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/16/8436aaee729bd9887c7c743a27226b]
-Apr-08 20:41:13.913 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
-Apr-08 20:41:13.914 [Task submitter] INFO  nextflow.Session - [77/5b4ed1] Submitted process > FEATURECOUNTS:MERGE_COUNTS
-Apr-08 20:41:16.954 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: FEATURECOUNTS:MERGE_COUNTS; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/77/5b4ed1bdd35adee7fd229e34c61fbb]
-Apr-08 20:41:16.960 [main] DEBUG nextflow.Session - Session await > all processes finished
-Apr-08 20:41:17.055 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
-Apr-08 20:41:17.055 [main] DEBUG nextflow.Session - Session await > all barriers passed
-Apr-08 20:41:17.068 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
-Apr-08 20:41:17.069 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
-Apr-08 20:41:17.071 [main] INFO  nextflow.Nextflow - Pipeline completed at: 2025-04-08T20:41:17.070084900+02:00
-Apr-08 20:41:17.073 [main] INFO  nextflow.Nextflow - Execution status: OK
-Apr-08 20:41:17.074 [main] INFO  nextflow.Nextflow - Execution duration: 2m 3s
-Apr-08 20:41:17.081 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=16; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=11m 27s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=3; peakCpus=6; peakMemory=12 GB; ]
-Apr-08 20:41:17.197 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
-Apr-08 20:41:17.236 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
-Apr-08 20:41:17.237 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
+Apr-08 21:38:02.993 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Apr-08 21:38:02.993 [main] DEBUG nextflow.Session - Session await
+Apr-08 21:38:03.249 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:03.256 [Task submitter] INFO  nextflow.Session - [82/931981] Submitted process > MULTIQC:CREATE_MULTIQC_CONFIG
+Apr-08 21:38:03.266 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:03.267 [Task submitter] INFO  nextflow.Session - [3e/1e6cb6] Submitted process > FASTQC:CREATE_ADAPTER_FILE
+Apr-08 21:38:03.304 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:03.305 [Task submitter] INFO  nextflow.Session - [5d/39860d] Submitted process > TRIMMOMATIC:CREATE_ADAPTER_FILE
+Apr-08 21:38:03.319 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:03.323 [Task submitter] INFO  nextflow.Session - [fd/56f1bf] Submitted process > STAR:STAR_INDEX (test_genome)
+Apr-08 21:38:03.766 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: MULTIQC:CREATE_MULTIQC_CONFIG; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/82/9319818c4145365384458be67a99e2]
+Apr-08 21:38:03.768 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=18; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-08 21:38:03.771 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: FASTQC:CREATE_ADAPTER_FILE; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/3e/1e6cb6a63c22b10ec67e2fcdf31e2e]
+Apr-08 21:38:03.805 [TaskFinalizer-2] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=18; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Apr-08 21:38:03.849 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:03.851 [Task submitter] INFO  nextflow.Session - [b2/07de10] Submitted process > FASTQC:RUN_FASTQC (sample2)
+Apr-08 21:38:03.891 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:03.893 [Task submitter] INFO  nextflow.Session - [42/e3df90] Submitted process > MULTIQC:RUN_MULTIQC
+Apr-08 21:38:03.900 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:03.900 [Task submitter] INFO  nextflow.Session - [58/cb2a4c] Submitted process > FASTQC:RUN_FASTQC (sample1)
+Apr-08 21:38:41.276 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: TRIMMOMATIC:CREATE_ADAPTER_FILE; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/5d/39860dc5928cd837aa0a2b13021862]
+Apr-08 21:38:41.337 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:41.338 [Task submitter] INFO  nextflow.Session - [92/1b0ea2] Submitted process > TRIMMOMATIC:RUN_TRIMMOMATIC (2)
+Apr-08 21:38:41.353 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:38:41.357 [Task submitter] INFO  nextflow.Session - [57/959586] Submitted process > TRIMMOMATIC:RUN_TRIMMOMATIC (1)
+Apr-08 21:38:45.707 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: TRIMMOMATIC:RUN_TRIMMOMATIC (2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/92/1b0ea23da6ba3de61a11c7066c9286]
+Apr-08 21:38:45.737 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: TRIMMOMATIC:RUN_TRIMMOMATIC (1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/57/959586758285a8fa666948fcfc3b95]
+Apr-08 21:39:03.850 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: FASTQC:RUN_FASTQC (sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/58/cb2a4c66e2eeef275b5402f3a86027]
+Apr-08 21:39:03.869 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: FASTQC:RUN_FASTQC (sample2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/b2/07de1054086edbfd02e62f80d3ae69]
+Apr-08 21:39:34.515 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: STAR:STAR_INDEX (test_genome); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/fd/56f1bf59efcafba23158f582a12d8d]
+Apr-08 21:39:34.540 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:39:34.541 [Task submitter] INFO  nextflow.Session - [67/24a72d] Submitted process > STAR:STAR_ALIGN (sample2)
+Apr-08 21:39:34.552 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:39:34.553 [Task submitter] INFO  nextflow.Session - [85/ee23b9] Submitted process > STAR:STAR_ALIGN (sample1)
+Apr-08 21:39:42.107 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: MULTIQC:RUN_MULTIQC; status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/42/e3df905581b64a7a956ae3429c8805]
+Apr-08 21:41:34.719 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 11; name: STAR:STAR_ALIGN (sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/85/ee23b9eaa744fc978e089fd1dbfd96]
+Apr-08 21:41:34.768 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:41:34.769 [Task submitter] INFO  nextflow.Session - [56/c4bffb] Submitted process > FEATURECOUNTS:FEATURECOUNTS_GENE (sample1)
+Apr-08 21:41:34.781 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:41:34.781 [Task submitter] INFO  nextflow.Session - [40/8547eb] Submitted process > FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT (sample1)
+Apr-08 21:41:35.360 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: STAR:STAR_ALIGN (sample2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/67/24a72db2c291d77ebe9af067b4edf0]
+Apr-08 21:41:35.384 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:41:35.384 [Task submitter] INFO  nextflow.Session - [d1/d85ff5] Submitted process > FEATURECOUNTS:FEATURECOUNTS_GENE (sample2)
+Apr-08 21:41:35.391 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:41:35.392 [Task submitter] INFO  nextflow.Session - [19/e52866] Submitted process > FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT (sample2)
+Apr-08 21:41:38.596 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 12; name: FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT (sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/40/8547eba1247d379134e3f26b33ead4]
+Apr-08 21:41:38.913 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 13; name: FEATURECOUNTS:FEATURECOUNTS_GENE (sample1); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/56/c4bffb36a92a345f24a4f2a57e92cd]
+Apr-08 21:41:39.448 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 14; name: FEATURECOUNTS:FEATURECOUNTS_TRANSCRIPT (sample2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/19/e528669bde9717e513faed6c09d1b9]
+Apr-08 21:41:39.479 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 15; name: FEATURECOUNTS:FEATURECOUNTS_GENE (sample2); status: COMPLETED; exit: 0; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/d1/d85ff544303bd982d55eb875f5ed07]
+Apr-08 21:41:39.501 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Apr-08 21:41:39.502 [Task submitter] INFO  nextflow.Session - [c9/381fdb] Submitted process > FEATURECOUNTS:MERGE_COUNTS
+Apr-08 21:41:41.478 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 16; name: FEATURECOUNTS:MERGE_COUNTS; status: COMPLETED; exit: 1; error: -; workDir: /home/konrad_guest/ExternalDisk/nfproject/work/c9/381fdbb8500291278fbc8c974178d4]
+Apr-08 21:41:41.487 [TaskFinalizer-6] DEBUG nextflow.processor.TaskProcessor - Handling unexpected condition for
+  task: name=FEATURECOUNTS:MERGE_COUNTS; work-dir=/home/konrad_guest/ExternalDisk/nfproject/work/c9/381fdbb8500291278fbc8c974178d4
+  error [nextflow.exception.ProcessFailedException]: Process `FEATURECOUNTS:MERGE_COUNTS` terminated with an error exit status (1)
+Apr-08 21:41:41.509 [TaskFinalizer-6] ERROR nextflow.processor.TaskProcessor - Error executing process > 'FEATURECOUNTS:MERGE_COUNTS'
+
+Caused by:
+  Process `FEATURECOUNTS:MERGE_COUNTS` terminated with an error exit status (1)
+
+
+Command executed:
+
+  #!/usr/bin/env Rscript
+  
+  # Function to merge count files
+  merge_count_files <- function(count_files, output_file) {
+      # Initialize empty data frame for merged counts
+      merged_counts <- NULL
+      sample_names <- c()
+  
+      # Process each count file
+      for (file in count_files) {
+          # Extract sample name from filename
+          filename <- basename(file)
+          sample_name <- sub("_counts.txt", "", filename)
+          sample_names <- c(sample_names, sample_name)
+  
+          # Read count data (skip header lines)
+          counts <- read.table(file, header=TRUE, skip=1)
+  
+          if (is.null(merged_counts)) {
+              # First file - initialize with gene IDs and lengths
+              merged_counts <- data.frame(
+                  gene_id = counts[,1],
+                  length = counts$Length
+              )
+              rownames(merged_counts) <- counts[,1]
+          }
+  
+          # Add counts from this sample
+          merged_counts[[sample_name]] <- counts$count
+      }
+  
+      # Write merged counts to file
+      write.csv(merged_counts, file=output_file, row.names=FALSE)
+  
+      return(sample_names)
+  }
+  
+  # Get list of gene count files
+  gene_files <- list.files(path=".", pattern="gene_counts.txt", full.names=TRUE)
+  
+  # Get list of transcript count files
+  tx_files <- list.files(path=".", pattern="transcript_counts.txt", full.names=TRUE)
+  
+  # Merge gene counts
+  gene_samples <- merge_count_files(gene_files, "merged_gene_counts.csv")
+  
+  # Merge transcript counts
+  tx_samples <- merge_count_files(tx_files, "merged_transcript_counts.csv")
+  
+  # Print summary
+  cat("Merged counts from", length(gene_samples), "samples\n")
+  cat("Samples:", paste(gene_samples, collapse=", "), "\n")
+
+Command exit status:
+  1
+
+Command output:
+  (empty)
+
+Command error:
+  Command 'ps' required by nextflow to collect task metrics cannot be found
+
+Work dir:
+  /home/konrad_guest/ExternalDisk/nfproject/work/c9/381fdbb8500291278fbc8c974178d4
+
+Container:
+  rocker/r-base:4.1.0
+
+Tip: view the complete command output by changing to the process work dir and entering the command `cat .command.out`
+Apr-08 21:41:41.514 [main] DEBUG nextflow.Session - Session await > all processes finished
+Apr-08 21:41:41.517 [TaskFinalizer-6] INFO  nextflow.Session - Execution cancelled -- Finishing pending tasks before exit
+Apr-08 21:41:41.533 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Apr-08 21:41:41.534 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Apr-08 21:41:41.537 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Apr-08 21:41:41.539 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Apr-08 21:41:41.554 [main] ERROR nextflow.script.WorkflowMetadata - Failed to invoke `workflow.onComplete` event handler
+java.lang.NumberFormatException: For input string: "507ms"
+	at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:67)
+	at java.base/java.lang.Long.parseLong(Long.java:711)
+	at java.base/java.lang.Long.valueOf(Long.java:1163)
+	at org.codehaus.groovy.runtime.StringGroovyMethods.toLong(StringGroovyMethods.java:3237)
+	at org.codehaus.groovy.runtime.dgm$1373.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at _nf_config_403e3418$_run_closure10$_closure21.doCall(_nf_config_403e3418:182)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:279)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:422)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2394)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2379)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2420)
+	at org.codehaus.groovy.runtime.dgm$207.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.vmplugin.v8.IndyInterface.fromCache(IndyInterface.java:321)
+	at _nf_config_403e3418$_run_closure10.doCall(_nf_config_403e3418:179)
+	at _nf_config_403e3418$_run_closure10.doCall(_nf_config_403e3418)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:279)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at nextflow.script.WorkflowMetadata$_invokeOnComplete_closure3.doCall(WorkflowMetadata.groovy:428)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:279)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at groovy.lang.Closure.call(Closure.java:433)
+	at groovy.lang.Closure.call(Closure.java:422)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2394)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2379)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:2420)
+	at nextflow.script.WorkflowMetadata.invokeOnComplete(WorkflowMetadata.groovy:426)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:343)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:328)
+	at groovy.lang.MetaClassImpl.doInvokeMethod(MetaClassImpl.java:1333)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1088)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1007)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokePogoMethod(InvokerHelper.java:645)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethod(InvokerHelper.java:628)
+	at org.codehaus.groovy.runtime.InvokerHelper.invokeMethodSafe(InvokerHelper.java:82)
+	at nextflow.script.WorkflowMetadata$_closure2.doCall(WorkflowMetadata.groovy:286)
+	at nextflow.script.WorkflowMetadata$_closure2.call(WorkflowMetadata.groovy)
+	at groovy.lang.Closure.run(Closure.java:505)
+	at nextflow.Session.shutdown0(Session.groovy:741)
+	at nextflow.Session.destroy(Session.groovy:694)
+	at nextflow.script.ScriptRunner.shutdown(ScriptRunner.groovy:260)
+	at nextflow.script.ScriptRunner.execute(ScriptRunner.groovy:146)
+	at nextflow.cli.CmdRun.run(CmdRun.groovy:376)
+	at nextflow.cli.Launcher.run(Launcher.groovy:503)
+	at nextflow.cli.Launcher.main(Launcher.groovy:658)
+Apr-08 21:41:41.561 [main] INFO  nextflow.Nextflow - Pipeline completed at: 2025-04-08T21:41:41.539834768+02:00
+Apr-08 21:41:41.565 [main] INFO  nextflow.Nextflow - Execution status: Failed
+Apr-08 21:41:41.566 [main] INFO  nextflow.Nextflow - Execution duration: 3m 41s
+Apr-08 21:41:41.571 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=15; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=6m 36s; failedDuration=1.9s; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=6; peakCpus=6; peakMemory=6 GB; ]
+Apr-08 21:41:41.572 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Apr-08 21:41:41.574 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Apr-08 21:41:42.049 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Apr-08 21:41:42.376 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Apr-08 21:41:42.405 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Apr-08 21:41:42.407 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye
