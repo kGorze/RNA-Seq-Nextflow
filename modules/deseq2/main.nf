@@ -5,7 +5,7 @@
  * Includes comprehensive statistical analysis and visualization
  */
 
-workflow DESEQ2_WORKFLOW {
+workflow DESEQ2 {
     take:
     counts_ch    // Channel with count matrices
     design_file  // Experimental design file

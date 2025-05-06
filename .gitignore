@@ -1,0 +1,10 @@
+*.log
+work/
+.nextflow/
+results/
+results/star/index
+results/fastqc/
+results/featurecounts/
+results/multiqc/
+results/star/
+results/trimmed/

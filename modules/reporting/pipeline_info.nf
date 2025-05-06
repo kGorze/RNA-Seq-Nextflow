@@ -31,7 +31,7 @@ process GENERATE_PIPELINE_INFO {
 Pipeline version: ${workflow.manifest.version}
 Run name: ${workflow.runName}
 Run date: \$(date)
-Execution time: \$(date -d@\$(($(date +%s) - \$(stat -c %Y .nextflow/history))) -u +%H:%M:%S)
+Execution time: ${workflow.duration}
 Command line: ${workflow.commandLine}
 Container: ${workflow.container}
 Profile: ${workflow.profile}

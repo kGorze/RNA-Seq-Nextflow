@@ -1,0 +1,12 @@
+chr1	test	gene	572	964	.	-	.	gene_id "gene_0"; gene_name "gene_0"; gene_biotype "protein_coding";
+chr1	test	transcript	572	964	.	-	.	gene_id "gene_0"; transcript_id "transcript_0"; gene_name "gene_0";
+chr1	test	five_prime_utr	572	649	.	-	.	gene_id "gene_0"; transcript_id "transcript_0";
+chr1	test	exon	650	767	.	-	.	gene_id "gene_0"; transcript_id "transcript_0"; exon_number "1";
+chr1	test	exon	769	886	.	-	.	gene_id "gene_0"; transcript_id "transcript_0"; exon_number "2";
+chr1	test	three_prime_utr	887	964	.	-	.	gene_id "gene_0"; transcript_id "transcript_0";
+chr1	test	gene	502	776	.	+	.	gene_id "gene_1"; gene_name "gene_1"; gene_biotype "protein_coding";
+chr1	test	transcript	502	776	.	+	.	gene_id "gene_1"; transcript_id "transcript_1"; gene_name "gene_1";
+chr1	test	five_prime_utr	502	556	.	+	.	gene_id "gene_1"; transcript_id "transcript_1";
+chr1	test	exon	557	638	.	+	.	gene_id "gene_1"; transcript_id "transcript_1"; exon_number "1";
+chr1	test	exon	640	721	.	+	.	gene_id "gene_1"; transcript_id "transcript_1"; exon_number "2";
+chr1	test	three_prime_utr	722	776	.	+	.	gene_id "gene_1"; transcript_id "transcript_1";

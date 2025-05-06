@@ -6,10 +6,10 @@
  */
 
 // Import required modules
-include { FASTQC_WORKFLOW } from '../fastqc/main'
-include { MULTIQC_WORKFLOW } from '../multiqc/main'
-include { QC_REPORT } from '../fastqc/qc_report'
-include { GENERATE_TEST_DATA } from '../fastqc/test_data'
+include { FASTQC_WORKFLOW } from './fastqc/main'
+include { MULTIQC_WORKFLOW } from './multiqc/main'
+include { QC_REPORT } from './fastqc/qc_report'
+include { GENERATE_TEST_DATA } from './fastqc/test_data'
 
 workflow QC_WORKFLOW {
     take:

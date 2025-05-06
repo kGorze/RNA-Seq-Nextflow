@@ -5,7 +5,7 @@
  * Includes transcriptome generation, indexing, and quantification
  */
 
-workflow SALMON_WORKFLOW {
+workflow SALMON {
     take:
     reads_ch     // Channel with sample_id and reads
     genome_file  // Reference genome FASTA
