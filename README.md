@@ -1,6 +1,8 @@
 # RNA-Seq Nextflow Pipeline
 
 A reproducible, containerized RNA‑seq workflow from FASTQ to differential expression implemented in Nextflow.
+![image](https://github.com/user-attachments/assets/610a28da-9498-4bcb-aa79-8f7948121221)
+
 
 ## Quick start
 
